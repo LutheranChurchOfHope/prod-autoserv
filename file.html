@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>test</title>
+<script type="text/javascript">
+function replaceStuff()
+	{
+		var y=document.getElementsByTagName("h1");
+
+		for (x in y)
+			{
+				var str=y[x].innerHTML;
+				y[x].innerHTML=str.replace("%02","");
+			}
+	}
+</script>
+</head>
+<body onload="replaceStuff();">
+<h1><!--#echo var="W01*50*3*4LRS|%02QPW%03"--></h1>
+</body>
+</html>
