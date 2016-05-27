@@ -103,7 +103,7 @@ sub lineByLine() {
 sub parseLine($) {
 		my $data = shift;
 		my($proj,$item,$type,$status) = split /,/, $data;
-		#print "projector: $proj\n";
+	#	switch ($type) {
 		my %hashName = (
 				proj => $proj,
 				item => $item,
