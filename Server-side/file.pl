@@ -28,23 +28,23 @@ use Switch;
 #}
 
 #sub getHashesReady () {
-        our %bridge_mainLeft;
-        our %bridge_mainRight;
-        our %bridge_mainCenter;
-        our %bridge_foldbackCenter;
-        our %chapel_mainSide;
-        our %chapel_mainCenter;
-        our %chapel_foldbackSide;
-        our %gym_mainSide;
-        our %well_mainCenter;
-        our %rm101a_mainCenter;
-        our %rm101c_mainCenter;
-        our %rm102_mainCenter;
-        our %rm104_mainCenter;
-        our %rm128_mainCenter;
-        our %rm212_mainCenter;
-        our %rm214_mainCenter;
-        our %rm216_mainCenter;
+		our %bridge_mainLeft;
+		our %bridge_mainRight;
+		our %bridge_mainCenter;
+		our %bridge_foldbackCenter;
+		our %chapel_mainSide;
+		our %chapel_mainCenter;
+		our %chapel_foldbackSide;
+		our %gym_mainSide;
+		our %well_mainCenter;
+		our %rm101A_mainCenter;
+		our %rm101C_mainCenter;
+		our %rm102_mainCenter;
+		our %rm104_mainCenter;
+		our %rm128_mainCenter;
+		our %rm212_mainCenter;
+		our %rm214_mainCenter;
+		our %rm216_mainCenter;
 #}
 
 
