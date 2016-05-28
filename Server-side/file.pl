@@ -324,19 +324,55 @@ sub parseLine($) {
 		#print %hashName;
 }
 
+sub printStuff() {
 
-print 'var bridge_mainLeft_status = '.$bridge_mainLeft{"status"}."\n";
-print 'var bridge_mainRight_status = '.$bridge_mainRight{"status"}."\n";
-print 'var bridge_mainCenter_status = '.$bridge_mainCenter{"status"}."\n";
-print 'var bridge_foldbackCenter_status = '.$bridge_foldbackCenter{"status"}."\n";
-print 'var chapel_mainSide_status = '.$chapel_mainSide{"status"}."\n";
-print 'var chapel_mainCenter_status = '.$chapel_mainCenter{"status"}."\n";
-print 'var chapel_foldbackSide_status = '.$chapel_foldbackSide{"status"}."\n";
+	# print stuff out to JavaScript
 
-print 'var bridge_mainLeft_hours = '.$bridge_mainLeft{"hours"}."\n";
-print 'var bridge_mainRight_hours = '.$bridge_mainRight{"hours"}."\n";
-print 'var bridge_mainCenter_hours = '.$bridge_mainCenter{"hours"}."\n";
-print 'var bridge_foldbackCenter_hours = '.$bridge_foldbackCenter{"hours"}."\n";
-print 'var chapel_mainSide_hours = '.$chapel_mainSide{"hours"}."\n";
-print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
-print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";
+	if (defined $bridge_mainLeft{'status'}) {
+		print 'var bridge_mainLeft_status = '.$bridge_mainLeft{"status"}."\n";
+	} else {
+		print 'var bridge_mainLeft_status = GEEK_ERR'."\n";
+	}
+
+	if (defined $bridge_mainRight{'status'}) {
+		print 'var bridge_mainRight_status = '.$bridge_mainRight{"status"}."\n";
+	} else {
+		print 'var bridge_mainRight_status = GEEK_ERR'."\n";
+	}
+
+	if (defined $bridge_mainCenter{'status'}) {
+		print 'var bridge_mainCenter_status = '.$bridge_mainCenter{"status"}."\n";
+	} else {
+		print 'var bridge_mainCenter_status = GEEK_ERR'."\n";
+
+	if (defined $bridge_foldbackCenter{'status'}) {
+		print 'var bridge_foldbackCenter_status = '.$bridge_foldbackCenter{"status"}."\n";
+	} else {
+		print 'var bridge_foldbackCenter_status = GEEK_ERR'."\n";
+	}
+
+	if (defined $chapel_mainSide{'status'}) {
+		print 'var chapel_mainSide_status = '.$chapel_mainSide{"status"}."\n";
+	} else {
+		print 'var chapel_mainSide_status = GEEK_ERR'."\n";
+	}
+	
+	if (defined $chapel_mainCenter{'status'}) {
+		print 'var chapel_mainCenter_status = '.$chapel_mainCenter{"status"}."\n";
+	} else {
+		print 'var chapel_mainCenter_status = GEEK_ERR'."\n";
+	}
+
+	if (defined $chapel_foldbackSide{'status}) {
+		print 'var chapel_foldbackSide_status = '.$chapel_foldbackSide{"status"}."\n";
+	} else {
+		print 'var chapel_foldbackSide_status = GEEK_ERR'."\n";
+	}
+
+#print 'var bridge_mainLeft_hours = '.$bridge_mainLeft{"hours"}."\n";
+#print 'var bridge_mainRight_hours = '.$bridge_mainRight{"hours"}."\n";
+#print 'var bridge_mainCenter_hours = '.$bridge_mainCenter{"hours"}."\n";
+#print 'var bridge_foldbackCenter_hours = '.$bridge_foldbackCenter{"hours"}."\n";
+#print 'var chapel_mainSide_hours = '.$chapel_mainSide{"hours"}."\n";
+#print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
+#print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";
