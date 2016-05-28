@@ -64,12 +64,14 @@ sub doFileRead() {
 				or die "Failed to open file $!\n";
 
 		while (my $x = <$fh>) {
+				# cut off the trailing newline
 				chomp $x;
 				# the following two lines are redundant,
 				# since they should be caught by the "getter"
 				# script and Extron box, respectively.
 				$x =~ s/%02//g;
 				$x =~ s/%03//g;
+				# append line $x to array @data
 				push @data, $x;
 		}
 }
@@ -112,10 +114,15 @@ sub lineByLine() {
 }
 
 sub parseLine($) {
+		# declare some vars
 		our %hashName;
 		our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+		# $data is whatever was passed to us
 		my $data = shift;
+		# split out the line from Extron box
 		our ($proj,$type,$item,$value) = split /,/, $data;
+		# determine what item (power, lamp hours, etc) we're
+		# looking at, and act upon it.
 		switch ($item) {
 			case m/power/ {
 				switch ($type) {
@@ -160,7 +167,8 @@ sub parseLine($) {
 			}
 		}
 
-
+		# put data we have into a temporary
+		# hash, just for the fun of it:
 		%hashName = (
 			proj => $proj,
 			type => $type,
@@ -172,6 +180,8 @@ sub parseLine($) {
 			hours4 => $hours4,
 		);
 
+		# figure out what projector, and what data,
+		# needs to be put into the appropriate hash
 		switch ($proj) {
 			case m/bridge_mainLeft/ {
 				if ($status != '') { $bridge_mainLeft{'power'} = $status; }
@@ -306,8 +316,11 @@ sub parseLine($) {
 				if ($hours3 != '') { $rmRR1_mainCenter{'hours3'} = $hours3; }
 				if ($hours4 != '') { $rmRR1_mainCenter{'hours4'} = $hours4; }
 			}
-	}
+		}
+		# return our temporary hash,
+		# just for the fun of it:
 		return %hashName;
+
 		#print %hashName;
 }
 
