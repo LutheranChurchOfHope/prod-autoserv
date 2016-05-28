@@ -1,9 +1,20 @@
+# Order: room_projectorLocation,projectorType,[status|lampHours],[echo var]
+# power status: QPW or CR0
+# lamp hours: Q$L:1 or CR3
 <h3>
-bridge_mainLeft,power,panasonicPJLink,<!--#echo var="W01*50*3*4LRS|%02QPW%03"-->
+bridge_mainLeft,panasonicPJLink,power,<!--#echo var="W01*50*3*4LRS|%02QPW%03"-->
 <br>
-bridge_mainRight,power,panasonicPJLink,<!--#echo var="W02*50*3*4LRS|%02QPW%03"-->
+bridge_mainLeft,panasonicPJLink,lampHours1,<!--#echo var="W01***6LRS|%02Q$L:1%03"-->
 <br>
-bridge_mainCenter,power,sanyoPLC,<!--#echo var="W03*50*3*2LRS|CR0%0D"-->
+bridge_mainLeft,panasonicPJLink,lampHours2,<!--#echo var="W01***6LRS|%02Q$L:2%03"-->
 <br>
-bridge_foldbackCenter,power,sanyoPLC,<!--#echo var="W04*50*3*2LRS|CR0%0D"-->
+bridge_mainRight,panasonicPJLink,power,<!--#echo var="W02*50*3*4LRS|%02QPW%03"-->
+<br>
+bridge_mainRight,panasonicPJLink,lampHours1,<!--#echo var="W02***6LRS|%02Q$L:1%03"-->
+<br>
+bridge_mainRight,panasonicPJLink,lampHours2,<!--#echo var="W02***6LRS|%02Q$L:2%03"-->
+<br>
+bridge_mainCenter,sanyoPLC,power,<!--#echo var="W03*50*3*2LRS|CR0%0D"-->
+<br>
+bridge_foldbackCenter,sanyoPLC,power,<!--#echo var="W04*50*3*2LRS|CR0%0D"-->
 </h3>
