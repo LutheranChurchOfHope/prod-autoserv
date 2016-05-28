@@ -91,30 +91,30 @@ sub lineByLine() {
 			&parseLine($x);
 		}
 #				switch ($x) {
-#						case m/bridge_mainLeft/ { %bridge_mainLeft = &parseLine($x); }
-#						case m/bridge_mainRight/ { %bridge_mainRight = &parseLine($x); }
-#						case m/bridge_mainCenter/ { %bridge_mainCenter = &parseLine($x); }
-#						case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = &parseLine($x); }
-#						case m/chapel_mainSide/ { %chapel_mainSide = &parseLine($x); }
-#						case m/chapel_mainCenter/ { %chapel_mainCenter = &parseLine($x); }
-#						case m/chapel_foldbackCenter/ { %chapel_foldbackCenter = &parseLine($x); }
-#						case m/gym_mainSide/ { %gym_mainSide = &parseLine($x); }
-#						case m/well_mainCenter/ { %well_mainCenter = &parseLine($x); }
-#						case m/rm101A_mainCenter/ { %rm101A_mainCenter = &parseLine($x); }
-#						case m/rm101C_mainCenter/ { %rm101C_mainCenter = &parseLine($x); }
-#						case m/rm102_mainCenter/ { %rm102_mainCenter = &parseLine($x); }
-#						case m/rm104_mainCenter/ { %rm104_mainCenter = &parseLine($x); }
-#						case m/rm128_mainCenter/ { %rm128_mainCenter = &parseLine($x); }
-#						case m/rm212_mainCenter/ { %rm212_mainCenter = &parseLine($x); }
-#						case m/rm214_mainCenter/ { %rm214_mainCenter = &parseLine($x); }
-#						case m/rm216_mainCenter/ { %rm216_mainCenter = &parseLine($x); }
-#						case m/rmRR1_mainCenter/ { %rmRR1_mainCenter = &parseLine($x); }
+#						case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x); }
+#						case m/bridge_mainRight/ { %bridge_mainRight = parseLine($x); }
+#						case m/bridge_mainCenter/ { %bridge_mainCenter = parseLine($x); }
+#						case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = parseLine($x); }
+#						case m/chapel_mainSide/ { %chapel_mainSide = parseLine($x); }
+#						case m/chapel_mainCenter/ { %chapel_mainCenter = parseLine($x); }
+#						case m/chapel_foldbackCenter/ { %chapel_foldbackCenter = parseLine($x); }
+#						case m/gym_mainSide/ { %gym_mainSide = parseLine($x); }
+#						case m/well_mainCenter/ { %well_mainCenter = parseLine($x); }
+#						case m/rm101A_mainCenter/ { %rm101A_mainCenter = parseLine($x); }
+#						case m/rm101C_mainCenter/ { %rm101C_mainCenter = parseLine($x); }
+#						case m/rm102_mainCenter/ { %rm102_mainCenter = parseLine($x); }
+#						case m/rm104_mainCenter/ { %rm104_mainCenter = parseLine($x); }
+#						case m/rm128_mainCenter/ { %rm128_mainCenter = parseLine($x); }
+#						case m/rm212_mainCenter/ { %rm212_mainCenter = parseLine($x); }
+#						case m/rm214_mainCenter/ { %rm214_mainCenter = parseLine($x); }
+#						case m/rm216_mainCenter/ { %rm216_mainCenter = parseLine($x); }
+#						case m/rmRR1_mainCenter/ { %rmRR1_mainCenter = parseLine($x); }
 #				}
 #		}
 }
 our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 our ($proj,$type,$item,$value);
-sub parseLine($) {
+sub parseLine() {
 		# declare some vars
 		our %hashName;
 		#our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
@@ -364,7 +364,7 @@ sub printStuff() {
 		print 'var chapel_mainCenter_status = GEEK_ERR'."\n";
 	}
 
-	if (defined $chapel_foldbackSide{'status}) {
+	if (defined $chapel_foldbackSide{'status'}) {
 		print 'var chapel_foldbackSide_status = '.$chapel_foldbackSide{"status"}."\n";
 	} else {
 		print 'var chapel_foldbackSide_status = GEEK_ERR'."\n";
