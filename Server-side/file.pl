@@ -112,7 +112,6 @@ sub lineByLine() {
 #				}
 #		}
 }
-
 our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 our ($proj,$type,$item,$value);
 sub parseLine($) {
