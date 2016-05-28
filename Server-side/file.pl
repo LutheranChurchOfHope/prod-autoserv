@@ -37,23 +37,23 @@ use Switch;
 
 #sub getHashesReady () {
 		# power
-		our %bridge_mainLeft_power;
-		our %bridge_mainRight_power;
-		our %bridge_mainCenter_power;
-		our %bridge_foldbackCenter_power;
-		our %chapel_mainSide_power;
-		our %chapel_mainCenter_power;
-		our %chapel_foldbackSide_power;
-		our %gym_mainSide_power;
-		our %well_mainCenter_power;
-		our %rm101A_mainCenter_power;
-		our %rm101C_mainCenter_power;
-		our %rm102_mainCenter_power;
-		our %rm104_mainCenter_power;
-		our %rm128_mainCenter_power;
-		our %rm212_mainCenter_power;
-		our %rm214_mainCenter_power;
-		our %rm216_mainCenter_power;
+		our %bridge_mainLeft;
+		our %bridge_mainRight;
+		our %bridge_mainCenter;
+		our %bridge_foldbackCenter;
+		our %chapel_mainSide;
+		our %chapel_mainCenter;
+		our %chapel_foldbackSide;
+		our %gym_mainSide;
+		our %well_mainCenter;
+		our %rm101A_mainCenter;
+		our %rm101C_mainCenter;
+		our %rm102_mainCenter;
+		our %rm104_mainCenter;
+		our %rm128_mainCenter;
+		our %rm212_mainCenter;
+		our %rm214_mainCenter;
+		our %rm216_mainCenter;
 #}
 
 
