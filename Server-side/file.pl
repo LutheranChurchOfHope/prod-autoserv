@@ -112,11 +112,11 @@ sub lineByLine() {
 #				}
 #		}
 }
-
+our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 sub parseLine($) {
 		# declare some vars
 		our %hashName;
-		our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+		#our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 		# $data is whatever was passed to us
 		my $data = shift;
 		# split out the line from Extron box
