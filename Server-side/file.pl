@@ -114,6 +114,9 @@ sub lineByLine() {
 }
 our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 our ($proj,$type,$item,$value);
+#TODO: try something like
+#while ($item =~ m/(00|80|40|20|10|28|02|24|04|21|81|88)
+#$status=$statusHashname{$1}
 sub parseLine() {
 		# declare some vars
 		our %hashName;
