@@ -250,13 +250,13 @@ sub parseLine() {
 				if ($hours3 != '') { $well_mainCenter{'hours3'} = $hours3; }
 				if ($hours4 != '') { $well_mainCenter{'hours4'} = $hours4; }
 			}
-			case m/rmX_mainCenter/ {
-				if ($status != '') { $rmX_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rmX_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rmX_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rmX_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rmX_mainCenter{'hours4'} = $hours4; }
-			}
+			#case m/rmX_mainCenter/ {
+			#	if ($status != '') { $rmX_mainCenter{'power'} = $status; }
+			#	if ($hours1 != '') { $rmX_mainCenter{'hours1'} = $hours1; }
+			#	if ($hours2 != '') { $rmX_mainCenter{'hours2'} = $hours2; }
+			#	if ($hours3 != '') { $rmX_mainCenter{'hours3'} = $hours3; }
+			#	if ($hours4 != '') { $rmX_mainCenter{'hours4'} = $hours4; }
+			#}
 			case m/rm101A_mainCenter/ {
 				if ($status != '') { $rm101A_mainCenter{'power'} = $status; }
 				if ($hours1 != '') { $rm101A_mainCenter{'hours1'} = $hours1; }
@@ -372,6 +372,7 @@ sub printStuff() {
 	} else {
 		print 'var chapel_foldbackSide_status = GEEK_ERR'."\n";
 	}
+}
 
 #print 'var bridge_mainLeft_hours = '.$bridge_mainLeft{"hours"}."\n";
 #print 'var bridge_mainRight_hours = '.$bridge_mainRight{"hours"}."\n";
