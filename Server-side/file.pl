@@ -189,39 +189,39 @@ sub parseLine() {
 		# needs to be put into the appropriate hash
 		switch ($proj) {
 			case m/bridge_mainLeft/ {
-				if ($status != '') { $bridge_mainLeft{'power'} = $status; }
-				if ($hours1 != '') { $bridge_mainLeft{'hours1'} = $hours1; }
-				if ($hours2 != '') { $bridge_mainLeft{'hours2'} = $hours2; }
-				if ($hours3 != '') { $bridge_mainLeft{'hours3'} = $hours3; }
-				if ($hours4 != '') { $bridge_mainLeft{'hours4'} = $hours4; }
+				if ($status ne '') { $bridge_mainLeft{'power'} = $status; }
+				if ($hours1 ne '') { $bridge_mainLeft{'hours1'} = $hours1; }
+				if ($hours2 ne '') { $bridge_mainLeft{'hours2'} = $hours2; }
+				if ($hours3 ne '') { $bridge_mainLeft{'hours3'} = $hours3; }
+				if ($hours4 ne '') { $bridge_mainLeft{'hours4'} = $hours4; }
 			}
 			case m/bridge_mainRight/ {
-				if ($status != '') { $bridge_mainRight{'power'} = $status; }
-				if ($hours1 != '') { $bridge_mainRight{'hours1'} = $hours1; }
-				if ($hours2 != '') { $bridge_mainRight{'hours2'} = $hours2; }
-				if ($hours3 != '') { $bridge_mainRight{'hours3'} = $hours3; }
-				if ($hours4 != '') { $bridge_mainRight{'hours4'} = $hours4; }
+				if ($status ne '') { $bridge_mainRight{'power'} = $status; }
+				if ($hours1 ne '') { $bridge_mainRight{'hours1'} = $hours1; }
+				if ($hours2 ne '') { $bridge_mainRight{'hours2'} = $hours2; }
+				if ($hours3 ne '') { $bridge_mainRight{'hours3'} = $hours3; }
+				if ($hours4 ne '') { $bridge_mainRight{'hours4'} = $hours4; }
 			}
 			case m/bridge_mainCenter/ {
-				if ($status != '') { $bridge_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $bridge_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $bridge_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $bridge_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $bridge_mainCenter{'hours4'} = $hours4; }
+				if ($status ne '') { $bridge_mainCenter{'power'} = $status; }
+				if ($hours1 ne '') { $bridge_mainCenter{'hours1'} = $hours1; }
+				if ($hours2 ne '') { $bridge_mainCenter{'hours2'} = $hours2; }
+				if ($hours3 ne '') { $bridge_mainCenter{'hours3'} = $hours3; }
+				if ($hours4 ne '') { $bridge_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/bridge_foldbackCenter/ {
-				if ($status != '') { $bridge_foldbackCenter{'power'} = $status; }
-				if ($hours1 != '') { $bridge_foldbackCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $bridge_foldbackCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $bridge_foldbackCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $bridge_foldbackCenter{'hours4'} = $hours4; }
+				if ($status ne '') { $bridge_foldbackCenter{'power'} = $status; }
+				if ($hours1 ne '') { $bridge_foldbackCenter{'hours1'} = $hours1; }
+				if ($hours2 ne '') { $bridge_foldbackCenter{'hours2'} = $hours2; }
+				if ($hours3 ne '') { $bridge_foldbackCenter{'hours3'} = $hours3; }
+				if ($hours4 ne '') { $bridge_foldbackCenter{'hours4'} = $hours4; }
 			}
 			case m/chapel_mainSide/ {
-				if ($status != '') { $chapel_mainSide{'power'} = $status; }
-				if ($hours1 != '') { $chapel_mainSide{'hours1'} = $hours1; }
-				if ($hours2 != '') { $chapel_mainSide{'hours2'} = $hours2; }
-				if ($hours3 != '') { $chapel_mainSide{'hours3'} = $hours3; }
-				if ($hours4 != '') { $chapel_mainSide{'hours4'} = $hours4; }
+				if ($status ne '') { $chapel_mainSide{'power'} = $status; }
+				if ($hours1 ne '') { $chapel_mainSide{'hours1'} = $hours1; }
+				if ($hours2 ne '') { $chapel_mainSide{'hours2'} = $hours2; }
+				if ($hours3 ne '') { $chapel_mainSide{'hours3'} = $hours3; }
+				if ($hours4 ne '') { $chapel_mainSide{'hours4'} = $hours4; }
 			}
 			case m/chapel_mainCenter/ {
 				if ($status != '') { $chapel_mainCenter{'power'} = $status; }
