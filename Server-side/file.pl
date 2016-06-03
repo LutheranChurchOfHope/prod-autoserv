@@ -54,6 +54,7 @@ use Switch;
 		our %rm212_mainCenter;
 		our %rm214_mainCenter;
 		our %rm216_mainCenter;
+		our %rmRR1_mainCenter;
 #}
 
 
@@ -348,6 +349,7 @@ sub printStuff() {
 		print 'var bridge_mainCenter_status = '.$bridge_mainCenter{"status"}."\n";
 	} else {
 		print 'var bridge_mainCenter_status = GEEK_ERR'."\n";
+	}
 
 	if (defined $bridge_foldbackCenter{'status'}) {
 		print 'var bridge_foldbackCenter_status = '.$bridge_foldbackCenter{"status"}."\n";
