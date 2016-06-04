@@ -113,15 +113,13 @@ sub lineByLine() {
 #				}
 #		}
 }
-our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
-our ($proj,$type,$item,$value);
 #TODO: try something like
 #while ($item =~ m/(00|80|40|20|10|28|02|24|04|21|81|88)
 #$status=$statusHashname{$1}
-sub parseLine() {
+sub parseLine {
 		# declare some vars
 		our %hashName;
-		#our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+		our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 		# $data is whatever was passed to us
 		my $data = shift;
 		# split out the line from Extron box
@@ -189,137 +187,137 @@ sub parseLine() {
 		# needs to be put into the appropriate hash
 		switch ($proj) {
 			case m/bridge_mainLeft/ {
-				if ($status ne '') { $bridge_mainLeft{'power'} = $status; }
-				if ($hours1 ne '') { $bridge_mainLeft{'hours1'} = $hours1; }
-				if ($hours2 ne '') { $bridge_mainLeft{'hours2'} = $hours2; }
-				if ($hours3 ne '') { $bridge_mainLeft{'hours3'} = $hours3; }
-				if ($hours4 ne '') { $bridge_mainLeft{'hours4'} = $hours4; }
+				if (defined $status) { $bridge_mainLeft{'power'} = $status; }
+				if (defined $hours1) { $bridge_mainLeft{'hours1'} = $hours1; }
+				if (defined $hours2) { $bridge_mainLeft{'hours2'} = $hours2; }
+				if (defined $hours3) { $bridge_mainLeft{'hours3'} = $hours3; }
+				if (defined $hours4) { $bridge_mainLeft{'hours4'} = $hours4; }
 			}
 			case m/bridge_mainRight/ {
-				if ($status ne '') { $bridge_mainRight{'power'} = $status; }
-				if ($hours1 ne '') { $bridge_mainRight{'hours1'} = $hours1; }
-				if ($hours2 ne '') { $bridge_mainRight{'hours2'} = $hours2; }
-				if ($hours3 ne '') { $bridge_mainRight{'hours3'} = $hours3; }
-				if ($hours4 ne '') { $bridge_mainRight{'hours4'} = $hours4; }
+				if (defined $status) { $bridge_mainRight{'power'} = $status; }
+				if (defined $hours1) { $bridge_mainRight{'hours1'} = $hours1; }
+				if (defined $hours2) { $bridge_mainRight{'hours2'} = $hours2; }
+				if (defined $hours3) { $bridge_mainRight{'hours3'} = $hours3; }
+				if (defined $hours4) { $bridge_mainRight{'hours4'} = $hours4; }
 			}
 			case m/bridge_mainCenter/ {
-				if ($status ne '') { $bridge_mainCenter{'power'} = $status; }
-				if ($hours1 ne '') { $bridge_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 ne '') { $bridge_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 ne '') { $bridge_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 ne '') { $bridge_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $bridge_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $bridge_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $bridge_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $bridge_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $bridge_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/bridge_foldbackCenter/ {
-				if ($status ne '') { $bridge_foldbackCenter{'power'} = $status; }
-				if ($hours1 ne '') { $bridge_foldbackCenter{'hours1'} = $hours1; }
-				if ($hours2 ne '') { $bridge_foldbackCenter{'hours2'} = $hours2; }
-				if ($hours3 ne '') { $bridge_foldbackCenter{'hours3'} = $hours3; }
-				if ($hours4 ne '') { $bridge_foldbackCenter{'hours4'} = $hours4; }
+				if (defined $status) { $bridge_foldbackCenter{'power'} = $status; }
+				if (defined $hours1) { $bridge_foldbackCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $bridge_foldbackCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $bridge_foldbackCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $bridge_foldbackCenter{'hours4'} = $hours4; }
 			}
 			case m/chapel_mainSide/ {
-				if ($status ne '') { $chapel_mainSide{'power'} = $status; }
-				if ($hours1 ne '') { $chapel_mainSide{'hours1'} = $hours1; }
-				if ($hours2 ne '') { $chapel_mainSide{'hours2'} = $hours2; }
-				if ($hours3 ne '') { $chapel_mainSide{'hours3'} = $hours3; }
-				if ($hours4 ne '') { $chapel_mainSide{'hours4'} = $hours4; }
+				if (defined $status) { $chapel_mainSide{'power'} = $status; }
+				if (defined $hours1) { $chapel_mainSide{'hours1'} = $hours1; }
+				if (defined $hours2) { $chapel_mainSide{'hours2'} = $hours2; }
+				if (defined $hours3) { $chapel_mainSide{'hours3'} = $hours3; }
+				if (defined $hours4) { $chapel_mainSide{'hours4'} = $hours4; }
 			}
 			case m/chapel_mainCenter/ {
-				if ($status != '') { $chapel_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $chapel_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $chapel_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $chapel_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $chapel_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $chapel_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $chapel_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $chapel_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $chapel_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $chapel_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/chapel_foldbackSide/ {
-				if ($status != '') { $chapel_foldbackSide{'power'} = $status; }
-				if ($hours1 != '') { $chapel_foldbackSide{'hours1'} = $hours1; }
-				if ($hours2 != '') { $chapel_foldbackSide{'hours2'} = $hours2; }
-				if ($hours3 != '') { $chapel_foldbackSide{'hours3'} = $hours3; }
-				if ($hours4 != '') { $chapel_foldbackSide{'hours4'} = $hours4; }
+				if (defined $status) { $chapel_foldbackSide{'power'} = $status; }
+				if (defined $hours1) { $chapel_foldbackSide{'hours1'} = $hours1; }
+				if (defined $hours2) { $chapel_foldbackSide{'hours2'} = $hours2; }
+				if (defined $hours3) { $chapel_foldbackSide{'hours3'} = $hours3; }
+				if (defined $hours4) { $chapel_foldbackSide{'hours4'} = $hours4; }
 			}
 			case m/gym_mainSide/ {
-				if ($status != '') { $gym_mainSide{'power'} = $status; }
-				if ($hours1 != '') { $gym_mainSide{'hours1'} = $hours1; }
-				if ($hours2 != '') { $gym_mainSide{'hours2'} = $hours2; }
-				if ($hours3 != '') { $gym_mainSide{'hours3'} = $hours3; }
-				if ($hours4 != '') { $gym_mainSide{'hours4'} = $hours4; }
+				if (defined $status) { $gym_mainSide{'power'} = $status; }
+				if (defined $hours1) { $gym_mainSide{'hours1'} = $hours1; }
+				if (defined $hours2) { $gym_mainSide{'hours2'} = $hours2; }
+				if (defined $hours3) { $gym_mainSide{'hours3'} = $hours3; }
+				if (defined $hours4) { $gym_mainSide{'hours4'} = $hours4; }
 			}
 			case m/well_mainCenter/ {
-				if ($status != '') { $well_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $well_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $well_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $well_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $well_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $well_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $well_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $well_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $well_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $well_mainCenter{'hours4'} = $hours4; }
 			}
 			#case m/rmX_mainCenter/ {
-			#	if ($status != '') { $rmX_mainCenter{'power'} = $status; }
-			#	if ($hours1 != '') { $rmX_mainCenter{'hours1'} = $hours1; }
-			#	if ($hours2 != '') { $rmX_mainCenter{'hours2'} = $hours2; }
-			#	if ($hours3 != '') { $rmX_mainCenter{'hours3'} = $hours3; }
-			#	if ($hours4 != '') { $rmX_mainCenter{'hours4'} = $hours4; }
+			#	if (defined $status) { $rmX_mainCenter{'power'} = $status; }
+			#	if (defined $hours1) { $rmX_mainCenter{'hours1'} = $hours1; }
+			#	if (defined $hours2) { $rmX_mainCenter{'hours2'} = $hours2; }
+			#	if (defined $hours3) { $rmX_mainCenter{'hours3'} = $hours3; }
+			#	if (defined $hours4) { $rmX_mainCenter{'hours4'} = $hours4; }
 			#}
 			case m/rm101A_mainCenter/ {
-				if ($status != '') { $rm101A_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm101A_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm101A_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm101A_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm101A_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm101A_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm101A_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm101A_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm101A_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm101A_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm101C_mainCenter/ {
-				if ($status != '') { $rm101C_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm101C_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm101C_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm101C_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm101C_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm101C_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm101C_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm101C_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm101C_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm101C_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm102_mainCenter/ {
-				if ($status != '') { $rm102_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm102_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm102_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm102_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm102_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm102_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm102_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm102_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm102_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm102_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm104_mainCenter/ {
-				if ($status != '') { $rm104_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm104_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm104_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm104_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm104_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm104_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm104_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm104_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm104_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm104_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm128_mainCenter/ {
-				if ($status != '') { $rm128_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm128_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm128_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm128_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm128_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm128_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm128_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm128_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm128_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm128_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm212_mainCenter/ {
-				if ($status != '') { $rm212_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm212_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm212_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm212_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm212_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm212_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm212_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm212_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm212_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm212_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm214_mainCenter/ {
-				if ($status != '') { $rm214_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm214_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm214_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm214_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm214_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm214_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm214_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm214_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm214_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm214_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rm216_mainCenter/ {
-				if ($status != '') { $rm216_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rm216_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rm216_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rm216_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rm216_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rm216_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rm216_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rm216_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rm216_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rm216_mainCenter{'hours4'} = $hours4; }
 			}
 			case m/rmRR1_mainCenter/ {
-				if ($status != '') { $rmRR1_mainCenter{'power'} = $status; }
-				if ($hours1 != '') { $rmRR1_mainCenter{'hours1'} = $hours1; }
-				if ($hours2 != '') { $rmRR1_mainCenter{'hours2'} = $hours2; }
-				if ($hours3 != '') { $rmRR1_mainCenter{'hours3'} = $hours3; }
-				if ($hours4 != '') { $rmRR1_mainCenter{'hours4'} = $hours4; }
+				if (defined $status) { $rmRR1_mainCenter{'power'} = $status; }
+				if (defined $hours1) { $rmRR1_mainCenter{'hours1'} = $hours1; }
+				if (defined $hours2) { $rmRR1_mainCenter{'hours2'} = $hours2; }
+				if (defined $hours3) { $rmRR1_mainCenter{'hours3'} = $hours3; }
+				if (defined $hours4) { $rmRR1_mainCenter{'hours4'} = $hours4; }
 			}
 		}
 		# return our temporary hash,
