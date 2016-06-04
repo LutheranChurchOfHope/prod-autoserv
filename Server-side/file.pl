@@ -339,46 +339,46 @@ sub printStuff() {
 
 	# print stuff out to JavaScript
 
-	if (defined $bridge_mainLeft{'status'}) {
-		print 'var bridge_mainLeft_status = '.$bridge_mainLeft{"status"}."\n";
+	if (defined $bridge_mainLeft{'power'}) {
+		print 'var bridge_mainLeft_power = '.$bridge_mainLeft{"power"}."\n";
 	} else {
-		print 'var bridge_mainLeft_status = GEEK_ERR'."\n";
+		print 'var bridge_mainLeft_power = GEEK_ERR'."\n";
 	}
 
-	if (defined $bridge_mainRight{'status'}) {
-		print 'var bridge_mainRight_status = '.$bridge_mainRight{"status"}."\n";
+	if (defined $bridge_mainRight{'power'}) {
+		print 'var bridge_mainRight_power = '.$bridge_mainRight{"power"}."\n";
 	} else {
-		print 'var bridge_mainRight_status = GEEK_ERR'."\n";
+		print 'var bridge_mainRight_power = GEEK_ERR'."\n";
 	}
 
-	if (defined $bridge_mainCenter{'status'}) {
-		print 'var bridge_mainCenter_status = '.$bridge_mainCenter{"status"}."\n";
+	if (defined $bridge_mainCenter{'power'}) {
+		print 'var bridge_mainCenter_power = '.$bridge_mainCenter{"power"}."\n";
 	} else {
-		print 'var bridge_mainCenter_status = GEEK_ERR'."\n";
+		print 'var bridge_mainCenter_power = GEEK_ERR'."\n";
 	}
 
-	if (defined $bridge_foldbackCenter{'status'}) {
-		print 'var bridge_foldbackCenter_status = '.$bridge_foldbackCenter{"status"}."\n";
+	if (defined $bridge_foldbackCenter{'power'}) {
+		print 'var bridge_foldbackCenter_power = '.$bridge_foldbackCenter{"power"}."\n";
 	} else {
-		print 'var bridge_foldbackCenter_status = GEEK_ERR'."\n";
+		print 'var bridge_foldbackCenter_power = GEEK_ERR'."\n";
 	}
 
-	if (defined $chapel_mainSide{'status'}) {
-		print 'var chapel_mainSide_status = '.$chapel_mainSide{"status"}."\n";
+	if (defined $chapel_mainSide{'power'}) {
+		print 'var chapel_mainSide_power = '.$chapel_mainSide{"power"}."\n";
 	} else {
-		print 'var chapel_mainSide_status = GEEK_ERR'."\n";
+		print 'var chapel_mainSide_power = GEEK_ERR'."\n";
 	}
 	
-	if (defined $chapel_mainCenter{'status'}) {
-		print 'var chapel_mainCenter_status = '.$chapel_mainCenter{"status"}."\n";
+	if (defined $chapel_mainCenter{'power'}) {
+		print 'var chapel_mainCenter_power = '.$chapel_mainCenter{"power"}."\n";
 	} else {
-		print 'var chapel_mainCenter_status = GEEK_ERR'."\n";
+		print 'var chapel_mainCenter_power = GEEK_ERR'."\n";
 	}
 
-	if (defined $chapel_foldbackSide{'status'}) {
-		print 'var chapel_foldbackSide_status = '.$chapel_foldbackSide{"status"}."\n";
+	if (defined $chapel_foldbackSide{'power'}) {
+		print 'var chapel_foldbackSide_power = '.$chapel_foldbackSide{"power"}."\n";
 	} else {
-		print 'var chapel_foldbackSide_status = GEEK_ERR'."\n";
+		print 'var chapel_foldbackSide_power = GEEK_ERR'."\n";
 	}
 }
 
