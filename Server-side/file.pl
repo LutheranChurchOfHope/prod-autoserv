@@ -6,13 +6,6 @@ use Switch;
 
 #system('sudo /opt/scripts/getter.sh');
 
-#&getHashesReady;
-#&getArraysReady;
-doFileRead;
-#&printFileStuff;
-lineByLine;
-printStuff;
-
 # 0. have "getter" get stuff, before this script runs
 # 1. Get variables ready
 # 2. Read everything in
@@ -124,6 +117,8 @@ sub parseLine {
 		# $data is whatever was passed to us
 		my $data = shift;
 		# split out the line from Extron box
+		#DEBUG
+		print $data
 		our ($proj,$type,$item,$value) = split /,/, $data;
 		# determine what item (power, lamp hours, etc) we're
 		# looking at, and act upon it.
@@ -132,8 +127,14 @@ sub parseLine {
 				switch ($type) {
 					case m/panasonicPJLink/ {
 						switch ($value) {
-							case m/000/ { $status = 'off'; }
-							case m/001/ { $status = 'on'; }
+							case m/000/ { $status = 'off';
+							#DEBUG
+							print $status;
+							}
+							case m/001/ { $status = 'on';
+							#DEBUG
+							print $status;
+							}
 						}
 					}
 					case m/sanyoPLC/ {
@@ -382,3 +383,12 @@ sub printStuff() {
 #print 'var chapel_mainSide_hours = '.$chapel_mainSide{"hours"}."\n";
 #print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
 #print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";
+
+
+#&getHashesReady;
+#&getArraysReady;
+doFileRead;
+#&printFileStuff;
+lineByLine;
+printStuff;
+
