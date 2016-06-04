@@ -118,8 +118,16 @@ sub parseLine {
 		my $data = shift;
 		# split out the line from Extron box
 		#DEBUG
-		print $data
+		print $data;
+		print "\n";
+		
 		our ($proj,$type,$item,$value) = split /,/, $data;
+		#DEBUG
+		print 'proj '."$proj"."\n";
+		print 'type '."$type"."\n";
+		print 'item '."$item"."\n";
+		print 'value '."$value"."\n";
+		
 		# determine what item (power, lamp hours, etc) we're
 		# looking at, and act upon it.
 		switch ($item) {
@@ -130,10 +138,12 @@ sub parseLine {
 							case m/000/ { $status = 'off';
 							#DEBUG
 							print $status;
+							
 							}
 							case m/001/ { $status = 'on';
 							#DEBUG
 							print $status;
+							
 							}
 						}
 					}
