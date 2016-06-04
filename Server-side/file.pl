@@ -121,11 +121,11 @@ sub parseLine {
 		print $data;
 		print "\n";
 		
-		our ($proj,$type,$item,$value) = split /,/, $data;
+		our ($proj,$item,$type,$value) = split /,/, $data;
 		#DEBUG
 		print 'proj '."$proj"."\n";
-		print 'type '."$type"."\n";
 		print 'item '."$item"."\n";
+		print 'type '."$type"."\n";
 		print 'value '."$value"."\n";
 		
 		# determine what item (power, lamp hours, etc) we're
@@ -135,16 +135,8 @@ sub parseLine {
 				switch ($type) {
 					case m/panasonicPJLink/ {
 						switch ($value) {
-							case m/000/ { $status = 'off';
-							#DEBUG
-							print $status;
-							
-							}
-							case m/001/ { $status = 'on';
-							#DEBUG
-							print $status;
-							
-							}
+							case m/000/ { $status = 'off'; }
+							case m/001/ { $status = 'on'; }
 						}
 					}
 					case m/sanyoPLC/ {
@@ -181,6 +173,9 @@ sub parseLine {
 				$hours4 = $value;
 			}
 		}
+		#DEBUG
+		print $status;
+		print "\n";
 
 		# put data we have into a temporary
 		# hash, just for the fun of it:
@@ -199,6 +194,7 @@ sub parseLine {
 		# needs to be put into the appropriate hash
 		switch ($proj) {
 			case m/bridge_mainLeft/ {
+				print "\n\n".'found bridge main left'."\n\n";
 				if (defined $status) { $bridge_mainLeft{'power'} = $status; }
 				if (defined $hours1) { $bridge_mainLeft{'hours1'} = $hours1; }
 				if (defined $hours2) { $bridge_mainLeft{'hours2'} = $hours2; }
