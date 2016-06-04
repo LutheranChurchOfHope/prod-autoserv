@@ -8,9 +8,10 @@ use Switch;
 
 #&getHashesReady;
 #&getArraysReady;
-&doFileRead;
+doFileRead;
 #&printFileStuff;
-&lineByLine;
+lineByLine;
+printStuff;
 
 # 0. have "getter" get stuff, before this script runs
 # 1. Get variables ready
@@ -154,7 +155,7 @@ sub parseLine {
 				}
 			}
 			case m/lampHoursAll/ {
-				our ($hours1,$hours2,$hours3,$hours4) = split / /, $value;
+				($hours1,$hours2,$hours3,$hours4) = split / /, $value;
 			}
 			case m/lampHours1/ {
 				$hours1 = $value;
