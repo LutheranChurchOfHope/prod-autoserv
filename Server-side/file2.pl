@@ -85,7 +85,8 @@ sub lineByLine() {
 	my $x;
 	foreach $x (@data) {
 		switch ($x) {
-			case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x); }
+			case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x);
+				print %bridge_mainLeft;}
 			case m/bridge_mainRight/ { %bridge_mainRight = parseLine($x); }
 			case m/bridge_mainCenter/ { %bridge_mainCenter = parseLine($x); }
 			case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = parseLine($x); }
@@ -112,20 +113,20 @@ sub lineByLine() {
 sub parseLine {
 		# declare some vars
 		our %hashName;
-		our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+		our ($power,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 		# $data is whatever was passed to us
 		my $data = shift;
 		# split out the line from Extron box
 		#DEBUG
-		print $data;
-		print "\n";
+#		print $data;
+#		print "\n";
 		
 		our ($proj,$item,$type,$value) = split /,/, $data;
 		#DEBUG
-		print 'proj '."$proj"."\n";
-		print 'item '."$item"."\n";
-		print 'type '."$type"."\n";
-		print 'value '."$value"."\n";
+#		print 'proj '."$proj"."\n";
+#		print 'item '."$item"."\n";
+#		print 'type '."$type"."\n";
+#		print 'value '."$value"."\n";
 		
 		# determine what item (power, lamp hours, etc) we're
 		# looking at, and act upon it.
@@ -134,24 +135,24 @@ sub parseLine {
 				switch ($type) {
 					case m/panasonicPJLink/ {
 						switch ($value) {
-							case m/000/ { $status = 'off'; }
-							case m/001/ { $status = 'on'; }
+							case m/000/ { $power = 'off'; }
+							case m/001/ { $power = 'on'; }
 						}
 					}
 					case m/sanyoPLC/ {
 						switch ($value) {
-							case m/00/ { $status = 'on'; }
-							case m/80/ { $status = 'off'; }
-							case m/40/ { $status = 'Countdown'; }
-							case m/20/ { $status = 'Cooling Down'; }
-							case m/10/ { $status = 'Power Malfunction'; }
-							case m/28/ { $status = 'Cooling down at the temperature anomaly'; }
-							case m/02/ { $status = 'Unable to receive the RC232C command.'; }
-							case m/24/ { $status = 'Cooling down at Power Management mode'; }
-							case m/04/ { $status = 'Power Management mode after Cooling down'; }
-							case m/21/ { $status = 'Cooling down after the projector is turned off when the lamps are out.'; }
-							case m/81/ { $status = 'Stand-by mode after Cooling down when the lamps are out.'; }
-							case m/88/ { $status = 'Stand-by mode after Cooling down at the temperature anomaly.'; }
+							case m/00/ { $power = 'on'; }
+							case m/80/ { $power = 'off'; }
+							case m/40/ { $power = 'Countdown'; }
+							case m/20/ { $power = 'Cooling Down'; }
+							case m/10/ { $power = 'Power Malfunction'; }
+							case m/28/ { $power = 'Cooling down at the temperature anomaly'; }
+							case m/02/ { $power = 'Unable to receive the RC232C command.'; }
+							case m/24/ { $power = 'Cooling down at Power Management mode'; }
+							case m/04/ { $power = 'Power Management mode after Cooling down'; }
+							case m/21/ { $power = 'Cooling down after the projector is turned off when the lamps are out.'; }
+							case m/81/ { $power = 'Stand-by mode after Cooling down when the lamps are out.'; }
+							case m/88/ { $power = 'Stand-by mode after Cooling down at the temperature anomaly.'; }
 						}
 					}
 				}
@@ -173,15 +174,15 @@ sub parseLine {
 			}
 		}
 		#DEBUG
-		print $status;
-		print "\n\n";
+#		print $power;
+#		print "\n\n";
 
 		# initilize the hash we're about to use below..
 		# ..with some "dummy" data:
 		%hashName = (
 			proj => 'no data',
 			type => 'no data',
-			status => 'no data',
+			power => 'no data',
 		#	hoursAll => 'no data',
 			hours1 => 'no data',
 			hours2 => 'no data',
@@ -193,7 +194,7 @@ sub parseLine {
 		# hash, just for the fun of it:
 		if (defined $proj) { $hashName{'proj'} = $proj; }
 		if (defined $type) { $hashName{'type'} = $type; }
-		if (defined $status) { $hashName{'status'} = $status; }
+		if (defined $power) { $hashName{'power'} = $power; }
 		if (defined $hoursAll) { $hashName{'hoursAll'} = $hoursAll; }
 		if (defined $hours1) { $hashName{'hours1'} = $hours1; }
 		if (defined $hours2) { $hashName{'hours2'} = $hours2; }
@@ -202,14 +203,14 @@ sub parseLine {
 #		%hashName = (
 #			proj => $proj,
 #			type => $type,
-#			status => $status,
+#			power => $power,
 #		#	hoursAll => $hoursAll,
 #			hours1 => $hours1,
 #			hours2 => $hours2,
 #			hours3 => $hours3,
 #			hours4 => $hours4,
 #		);
-		print %hashName;
+#		print %hashName;
 
 		# return our temporary hash,
 		# just for the fun of it:
@@ -220,11 +221,11 @@ sub printStuff() {
 
 	# print stuff out to JavaScript
 
-	if (defined $bridge_mainLeft{'power'}) {
+	#if (defined $bridge_mainLeft{'power'}) {
 		print 'var bridge_mainLeft_power = '.$bridge_mainLeft{"power"}."\n";
-	} else {
-		print 'var bridge_mainLeft_power = GEEK_ERR'."\n";
-	}
+	#} else {
+	#	print 'var bridge_mainLeft_power = GEEK_ERR'."\n";
+	#}
 
 	if (defined $bridge_mainRight{'power'}) {
 		print 'var bridge_mainRight_power = '.$bridge_mainRight{"power"}."\n";
