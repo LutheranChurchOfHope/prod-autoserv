@@ -174,8 +174,21 @@ sub parseLine {
 		}
 		#DEBUG
 		print $status;
-		print "\n";
+		print "\n\n";
 
+		# initilize the hash we're about to use below..
+		# ..with some "dummy" data:
+		%hashName = (
+			proj => 'no data',
+			type => 'no data',
+			status => 'no data',
+		#	hoursAll => 'no data',
+			hours1 => 'no data',
+			hours2 => 'no data',
+			hours3 => 'no data',
+			hours4 => 'no data',
+		);
+		
 		# put data we have into a temporary
 		# hash, just for the fun of it:
 		%hashName = (
@@ -188,12 +201,11 @@ sub parseLine {
 			hours3 => $hours3,
 			hours4 => $hours4,
 		);
+		print %hashName;
 
 		# return our temporary hash,
 		# just for the fun of it:
 		return %hashName;
-
-		#print %hashName;
 }
 
 sub printStuff() {
