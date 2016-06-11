@@ -25,33 +25,27 @@ use Switch;
 # 4.
 
 
-#sub getArraysReady() {
-		our @data;
-#}
-
-#sub getHashesReady () {
-		# power
-		our %bridge_mainLeft;
-		our %bridge_mainRight;
-		our %bridge_mainCenter;
-		our %bridge_foldbackCenter;
-		our %chapel_mainSide;
-		our %chapel_mainCenter;
-		our %chapel_foldbackSide;
-		our %gym_mainSide;
-		our %well_mainCenter;
-		our %rm101A_mainCenter;
-		our %rm101C_mainCenter;
-		our %rm102_mainCenter;
-		our %rm104_mainCenter;
-		our %rm128_mainCenter;
-		our %rm212_mainCenter;
-		our %rm214_mainCenter;
-		our %rm216_mainCenter;
-		our %rmRR1_mainCenter;
-#}
-
-
+# vars and such:
+our @data;
+our %bridge_mainLeft;
+our %bridge_mainRight;
+our %bridge_mainCenter;
+our %bridge_foldbackCenter;
+our %chapel_mainSide;
+our %chapel_mainCenter;
+our %chapel_foldbackSide;
+our %gym_mainSide;
+our %well_mainCenter;
+our %rm101A_mainCenter;
+our %rm101C_mainCenter;
+our %rm102_mainCenter;
+our %rm104_mainCenter;
+our %rm128_mainCenter;
+our %rm212_mainCenter;
+our %rm214_mainCenter;
+our %rm216_mainCenter;
+our %rmRR1_mainCenter;
+our %rmXX_mainCenter;
 
 
 sub doFileRead() {
@@ -176,16 +170,6 @@ sub parseLine {
 			hours4 => 'NO_DATA',
 		);
 		
-		# put data we have into a temporary
-		# hash, just for the fun of it:
-#		if (defined $proj) { $hashName{'proj'} = $proj; }
-#		if (defined $type) { $hashName{'type'} = $type; }
-#		if (defined $power) { $hashName{'power'} = $power; }
-#		if (defined $hoursAll) { $hashName{'hoursAll'} = $hoursAll; }
-#		if (defined $hours1) { $hashName{'hours1'} = $hours1; }
-#		if (defined $hours2) { $hashName{'hours2'} = $hours2; }
-#		if (defined $hours3) { $hashName{'hours3'} = $hours3; }
-#		if (defined $hours4) { $hashName{'hours4'} = $hours4; }
 		%hashName = (
 			proj => $proj,
 			type => $type,
@@ -203,63 +187,73 @@ sub parseLine {
 		return %hashName;
 }
 
-sub printStuff() {
+sub printStuff {
+	my $projvar = shift;
+	if (defined $projvar ) { print $projvar; } else { print 'GEEK_ERR'; }
+	print "\n";
+}
+
+sub printer() {
 
 	# print stuff out to JavaScript
 
-	if (defined $bridge_mainLeft{'power'}) {
-		print 'var bridge_mainLeft_power = '.$bridge_mainLeft{'power'}."\n";
-	} else {
-		print 'var bridge_mainLeft_power = GEEK_ERR'."\n";
-	}
+	print 'var bridge_mainLeft_power = ';
+	printStuff($bridge_mainLeft{'power'});
 
-	if (defined $bridge_mainRight{'power'}) {
-		print 'var bridge_mainRight_power = '.$bridge_mainRight{'power'}."\n";
-	} else {
-		print 'var bridge_mainRight_power = GEEK_ERR'."\n";
-	}
+	print 'var bridge_mainRight_power = ';
+	printStuff($bridge_mainRight{'power'});
 
-	if (defined $bridge_mainCenter{'power'}) {
-		print 'var bridge_mainCenter_power = '.$bridge_mainCenter{'power'}."\n";
-	} else {
-		print 'var bridge_mainCenter_power = GEEK_ERR'."\n";
-	}
+	print 'var bridge_mainCenter_power = ';
+	printStuff($bridge_mainCenter{'power'});
 
-	if (defined $bridge_foldbackCenter{'power'}) {
-		print 'var bridge_foldbackCenter_power = '.$bridge_foldbackCenter{'power'}."\n";
-	} else {
-		print 'var bridge_foldbackCenter_power = GEEK_ERR'."\n";
-	}
+	print 'var bridge_foldbackCenter_power = ';
+	printStuff($bridge_foldbackCenter{'power'});
 
-	if (defined $chapel_mainSide{'power'}) {
-		print 'var chapel_mainSide_power = '.$chapel_mainSide{'power'}."\n";
-	} else {
-		print 'var chapel_mainSide_power = GEEK_ERR'."\n";
-	}
+	print 'var chapel_mainSide_power = ';
+	printStuff($chapel_mainSide{'power'});
 	
-	if (defined $chapel_mainCenter{'power'}) {
-		print 'var chapel_mainCenter_power = '.$chapel_mainCenter{'power'}."\n";
-	} else {
-		print 'var chapel_mainCenter_power = GEEK_ERR'."\n";
-	}
+	print 'var chapel_mainCenter_power = ';
+	printStuff($chapel_mainCenter{'power'});
 
-	if (defined $chapel_foldbackSide{'power'}) {
-		print 'var chapel_foldbackSide_power = '.$chapel_foldbackSide{'power'}."\n";
-	} else {
-		print 'var chapel_foldbackSide_power = GEEK_ERR'."\n";
-	}
+	print 'var chapel_foldbackSide_power = ';
+	printStuff($chapel_foldbackSide{'power'});
 
-	if (defined $rmXX_mainCenter{'power'}) {
-		print 'var rmXX_mainCenter_power = '.$rmXX_mainCenter{'power'}."\n";
-	} else {
-		print 'var rmXX_mainCenter_power = GEEK_ERR'."\n";
-	}
+	print 'var gym_mainSide_power = ';
+	printStuff($gym_mainSide{'power'});
 
-	if (defined $rmXX_mainCenter{'power'}) {
-		print 'var rmXX_mainCenter_power = '.$rmXX_mainCenter{'power'}."\n";
-	} else {
-		print 'var rmXX_mainCenter_power = GEEK_ERR'."\n";
-	}
+	print 'var well_mainCenter_power = ';
+	printStuff($well_mainCenter{'power'});
+
+	print 'var rm101A_mainCenter_power = ';
+	printStuff($rm101A_mainCenter{'power'});
+
+	print 'var rm101C_mainCenter_power = ';
+	printStuff($rm101C_mainCenter{'power'});
+
+	print 'var rm102_mainCenter_power = ';
+	printStuff($rm102_mainCenter{'power'});
+
+	print 'var rm104_mainCenter_power = ';
+	printStuff($rm104_mainCenter{'power'});
+
+	print 'var rm128_mainCenter_power = ';
+	printStuff($rm128_mainCenter{'power'});
+
+	print 'var rm212_mainCenter_power = ';
+	printStuff($rm212_mainCenter{'power'});
+
+	print 'var rm214_mainCenter_power = ';
+	printStuff($rm214_mainCenter{'power'});
+
+	print 'var rm216_mainCenter_power = ';
+	printStuff($rm216_mainCenter{'power'});
+
+	print 'var rmRR1_mainCenter_power = ';
+	printStuff($rmRR1_mainCenter{'power'});
+
+	print 'var rmXX_mainCenter_power = ';
+	printStuff($rmXX_mainCenter{'power'});
+
 }
 
 #print 'var bridge_mainLeft_hours = '.$bridge_mainLeft{"hours"}."\n";
@@ -276,5 +270,5 @@ sub printStuff() {
 doFileRead;
 #&printFileStuff;
 lineByLine;
-printStuff;
+printer;
 
