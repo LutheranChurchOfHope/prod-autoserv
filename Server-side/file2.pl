@@ -191,16 +191,24 @@ sub parseLine {
 		
 		# put data we have into a temporary
 		# hash, just for the fun of it:
-		%hashName = (
-			proj => $proj,
-			type => $type,
-			status => $status,
-		#	hoursAll => $hoursAll,
-			hours1 => $hours1,
-			hours2 => $hours2,
-			hours3 => $hours3,
-			hours4 => $hours4,
-		);
+		if (defined $proj) { $hashName{'proj'} = $proj; }
+		if (defined $type) { $hashName{'type'} = $type; }
+		if (defined $status) { $hashName{'status'} = $status; }
+		if (defined $hoursAll) { $hashName{'hoursAll'} = $hoursAll; }
+		if (defined $hours1) { $hashName{'hours1'} = $hours1; }
+		if (defined $hours2) { $hashName{'hours2'} = $hours2; }
+		if (defined $hours3) { $hashName{'hours3'} = $hours3; }
+		if (defined $hours4) { $hashName{'hours4'} = $hours4; }
+#		%hashName = (
+#			proj => $proj,
+#			type => $type,
+#			status => $status,
+#		#	hoursAll => $hoursAll,
+#			hours1 => $hours1,
+#			hours2 => $hours2,
+#			hours3 => $hours3,
+#			hours4 => $hours4,
+#		);
 		print %hashName;
 
 		# return our temporary hash,
