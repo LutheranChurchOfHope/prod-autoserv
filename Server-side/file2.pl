@@ -82,30 +82,30 @@ sub doFileRead() {
 #}
 
 sub lineByLine() {
-		foreach my $x (@data) {
-			&parseLine($x);
-		}
-				switch ($x) {
-						case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x); }
-						case m/bridge_mainRight/ { %bridge_mainRight = parseLine($x); }
-						case m/bridge_mainCenter/ { %bridge_mainCenter = parseLine($x); }
-						case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = parseLine($x); }
-						case m/chapel_mainSide/ { %chapel_mainSide = parseLine($x); }
-						case m/chapel_mainCenter/ { %chapel_mainCenter = parseLine($x); }
-						case m/chapel_foldbackCenter/ { %chapel_foldbackCenter = parseLine($x); }
-						case m/gym_mainSide/ { %gym_mainSide = parseLine($x); }
-						case m/well_mainCenter/ { %well_mainCenter = parseLine($x); }
-						case m/rm101A_mainCenter/ { %rm101A_mainCenter = parseLine($x); }
-						case m/rm101C_mainCenter/ { %rm101C_mainCenter = parseLine($x); }
-						case m/rm102_mainCenter/ { %rm102_mainCenter = parseLine($x); }
-						case m/rm104_mainCenter/ { %rm104_mainCenter = parseLine($x); }
-						case m/rm128_mainCenter/ { %rm128_mainCenter = parseLine($x); }
-						case m/rm212_mainCenter/ { %rm212_mainCenter = parseLine($x); }
-						case m/rm214_mainCenter/ { %rm214_mainCenter = parseLine($x); }
-						case m/rm216_mainCenter/ { %rm216_mainCenter = parseLine($x); }
-						case m/rmRR1_mainCenter/ { %rmRR1_mainCenter = parseLine($x); }
-#				}
-#		}
+	my $x;
+	foreach $x (@data) {
+		&parseLine($x);
+	}
+	switch ($x) {
+		case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x); }
+		case m/bridge_mainRight/ { %bridge_mainRight = parseLine($x); }
+		case m/bridge_mainCenter/ { %bridge_mainCenter = parseLine($x); }
+		case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = parseLine($x); }
+		case m/chapel_mainSide/ { %chapel_mainSide = parseLine($x); }
+		case m/chapel_mainCenter/ { %chapel_mainCenter = parseLine($x); }
+		case m/chapel_foldbackSide/ { %chapel_foldbackSide = parseLine($x); }
+		case m/gym_mainSide/ { %gym_mainSide = parseLine($x); }
+		case m/well_mainCenter/ { %well_mainCenter = parseLine($x); }
+		case m/rm101A_mainCenter/ { %rm101A_mainCenter = parseLine($x); }
+		case m/rm101C_mainCenter/ { %rm101C_mainCenter = parseLine($x); }
+		case m/rm102_mainCenter/ { %rm102_mainCenter = parseLine($x); }
+		case m/rm104_mainCenter/ { %rm104_mainCenter = parseLine($x); }
+		case m/rm128_mainCenter/ { %rm128_mainCenter = parseLine($x); }
+		case m/rm212_mainCenter/ { %rm212_mainCenter = parseLine($x); }
+		case m/rm214_mainCenter/ { %rm214_mainCenter = parseLine($x); }
+		case m/rm216_mainCenter/ { %rm216_mainCenter = parseLine($x); }
+		case m/rmRR1_mainCenter/ { %rmRR1_mainCenter = parseLine($x); }
+	}
 }
 #TODO: try something like
 #while ($item =~ m/(00|80|40|20|10|28|02|24|04|21|81|88)
