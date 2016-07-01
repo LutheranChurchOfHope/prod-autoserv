@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet/common_styles-file.css">
 		<script type="text/javascript" src="javascript/autorefresh.js"></script>
 		<script type="text/javascript" src="javascript/status_vars.js"></script>
+		<script type="text/javascript" src="javascript/misc_func.js"></script>
 	</head>
 
 	<body class="bg-black">
@@ -28,67 +29,67 @@
 			</tr>
 			<tr class="table-no-buttons">
 				<td colspan="4" class="table-no-buttons">
-					<span class="simple-no-buttons width-90x">Bridge projectors</span>
+					<span class="simple-no-buttons">Bridge projectors</span>
 				</td>
 			</tr>
 			<!-- Bridge Main Left -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons ">Main Left</span>
+					<span class="simple-no-buttons">Main Left</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="bridge_mainLeft_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 1234, 1212, 0900</span>
+					<span class="simple-no-buttons" id="bridge_mainLeft_hours">1234, 1234, 1212, 0900</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="bridge_mainLeft_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<!-- Bridge Main Right -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<a class="simple-no-buttons width-80x">Main Right</a>
+					<a class="simple-no-buttons">Main Right</a>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="bridge_mainRight_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 1234, 1212, 0900</span>
+					<span class="simple-no-buttons" id="bridge_mainRight_hours">1234, 1234, 1212, 0900</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="bridge_mainRight_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<!-- Bridge Main Center -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">Main Center</span>
+					<span class="simple-no-buttons">Main Center</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="bridge_mainCenter_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 1234, 1212, 0900</span>
+					<span class="simple-no-buttons" id="bridge_mainCenter_hours">1234, 1234, 1212, 0900</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="bridge_mainCenter_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<!-- Bridge Foldback Center -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">Foldback Center</span>
+					<span class="simple-no-buttons">Foldback Center</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="bridge_foldbackCenter_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 1234, 1212, 0900</span>
+					<span class="simple-no-buttons" id="bridge_foldbackCenter_hours">1234, 1234, 1212, 0900</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="bridge_foldbackCenter_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<tr>
@@ -98,57 +99,107 @@
 			</tr>
 			<tr class="table-no-buttons">
 				<td colspan="4" class="table-no-buttons">
-					<span class="simple-no-buttons width-90x">Chapel projectors</span>
+					<span class="simple-no-buttons">Chapel projectors</span>
 				</td>
 			</tr>
 			<!-- Chapel Main Side -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons ">Main Side</span>
+					<span class="simple-no-buttons">Main Side</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="chapel_mainSide_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 1234, 1212, 0900</span>
+					<span class="simple-no-buttons" id="chapel_mainSide_hours">1234, 1234, 1212, 0900</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="chapel_mainSide_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<!-- Chapel Main Center -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<a class="simple-no-buttons width-80x">Main Center</a>
+					<a class="simple-no-buttons">Main Center</a>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">ON</span>
+					<span class="simple-no-buttons" id="chapel_mainCenter_power">ON</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 0900, 0, 0</span>
+					<span class="simple-no-buttons" id="chapel_mainCenter_hours">1234, 0900, 0, 0</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="chapel_mainCenter_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<!-- Chapel Foldback Side -->
 			<tr class="table-no-buttons">
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">Foldback Side</span>
+					<span class="simple-no-buttons">Foldback Side</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">OFF</span>
+					<span class="simple-no-buttons" id="chapel_foldbackSide_power">OFF</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">1234, 0, 0, 0</span>
+					<span class="simple-no-buttons" id="chapel_foldbackSide_hours">1234, 0, 0, 0</span>
 				</td>
 				<td class="table-no-buttons">
-					<span class="simple-no-buttons width-80x">[ status dot ]</span>
+					<span class="simple-no-buttons" id="chapel_foldbackSide_indicator">[ status dot ]</span>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="4">
 					<br><br><br><br>
+				</td>
+			</tr>
+			<tr class="table-no-buttons">
+				<td colspan="4" class="table-no-buttons">
+					<span class="simple-no-buttons">Gym projectors</span>
+				</td>
+			</tr>
+			<!-- Gym Main Side -->
+			<tr class="table-no-buttons">
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons">Main Side</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="gym_mainSide_power">OFF</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="gym_mainSide_hours">1234, 1234, 1212, 0900</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="gym_mainSide_indicator">[ status dot ]</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<br><br><br><br>
+				</td>
+			</tr>
+			<tr class="table-no-buttons">
+				<td colspan="4" class="table-no-buttons">
+					<span class="simple-no-buttons">Well projectors</span>
+				</td>
+			</tr>
+			<!-- Well Main Center -->
+			<tr class="table-no-buttons">
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons">Main Center</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="well_mainCenter_power">OFF</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="well_mainCenter_hours">1234, 1234, 1212, 0900</span>
+				</td>
+				<td class="table-no-buttons">
+					<span class="simple-no-buttons" id="well_mainCenter_indicator">[ status dot ]</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<br><br>
 				</td>
 			</tr>
 		</table>
