@@ -8,6 +8,7 @@ var chapel_mainCenter_power = 'GEEK_ERR';
 var chapel_foldbackSide_power = 'GEEK_ERR';
 var gym_mainSide_power = 'GEEK_ERR';
 var well_mainCenter_power = 'GEEK_ERR';
+
 // hours
 var bridge_mainLeft_hours = 'GEEK_ERR';
 var bridge_mainRight_hours = 'GEEK_ERR';
@@ -18,6 +19,7 @@ var chapel_mainCenter_hours = 'GEEK_ERR';
 var chapel_foldbackSide_hours = 'GEEK_ERR';
 var gym_mainSide_hours = 'GEEK_ERR';
 var well_mainCenter_hours = 'GEEK_ERR';
+
 // indicator
 var bridge_mainLeft_indicator = 'GEEK_ERR';
 var bridge_mainRight_indicator = 'GEEK_ERR';
@@ -29,11 +31,14 @@ var chapel_foldbackSide_indicator = 'GEEK_ERR';
 var gym_mainSide_indicator = 'GEEK_ERR';
 var well_mainCenter_indicator = 'GEEK_ERR';
 
-var sdRED = '<img src="images/red-dot.png" alt="red-dot">';
-var sdORANGE = '<img src="images/flashing-orange.gif" alt="warning/error">';
-var sdGREEN = '<img src="images/green-dot.png" alt="green-dot">';
+var sdRED = '<img src="graphics/red-dot.png" alt="red-dot">';
+var sdORANGE = '<img src="graphics/flashing-orange.gif" alt="warning/error">';
+var sdGREEN = '<img src="graphics/green-dot.png" alt="green-dot">';
 
-var myVar = setInterval(doStuffOverAndOver,500);
+//var myVar = setInterval(doStuffOverAndOver,500);
+function goForth() {
+	setInterval(doStuffOverAndOver,500);
+}
 
 function doStuffOverAndOver() {
 	readVars();
@@ -117,11 +122,11 @@ function powerToStatusDot() {
 //indicatorStrings.forEach(statusDot);
 
 function statusDot(sdVal) { // "sd" = "status dot"
-	if (sdVal == "OFF") {
+	if (sdVal == "off") {
 		return sdRED;
 	}
 	else {
-		if (sdVal == "ON") {
+		if (sdVal == "on") {
 			return sdGREEN;
 		}
 		else {

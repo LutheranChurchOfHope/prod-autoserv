@@ -189,70 +189,104 @@ sub parseLine {
 
 sub printStuff {
 	my $projvar = shift;
-	if (defined $projvar ) { print $projvar; } else { print 'GEEK_ERR'; }
-	print "\n";
+	if (defined $projvar ) { print "\'".$projvar."\'"; } else { print "\'".'GEEK_ERR'."\'"; }
+	#print ';'."\n";
 }
 
 sub printer() {
 
+	print 'function readVars() {';
+	print "\n";
+
 	# print stuff out to JavaScript
 
-	print 'var bridge_mainLeft_power = ';
+	print 'bridge_mainLeft_power = ';
 	printStuff($bridge_mainLeft{'power'});
+	print ';'."\n";
+	print 'bridge_mainLeft_hours = ';
+	printStuff($bridge_mainLeft{'hours1'});
+	print ', ';
+	printStuff($bridge_mainLeft{'hours2'});
+	print ', ';
+	printStuff($bridge_mainLeft{'hours3'});
+	print ', ';
+	printStuff($bridge_mainLeft{'hours4'});
+	print ';'."\n";
 
-	print 'var bridge_mainRight_power = ';
+	print 'bridge_mainRight_power = ';
 	printStuff($bridge_mainRight{'power'});
+	print ';'."\n";
 
-	print 'var bridge_mainCenter_power = ';
+	print 'bridge_mainCenter_power = ';
 	printStuff($bridge_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var bridge_foldbackCenter_power = ';
+	print 'bridge_foldbackCenter_power = ';
 	printStuff($bridge_foldbackCenter{'power'});
+	print ';'."\n";
 
-	print 'var chapel_mainSide_power = ';
+	print 'chapel_mainSide_power = ';
 	printStuff($chapel_mainSide{'power'});
+	print ';'."\n";
 	
-	print 'var chapel_mainCenter_power = ';
+	print 'chapel_mainCenter_power = ';
 	printStuff($chapel_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var chapel_foldbackSide_power = ';
+	print 'chapel_foldbackSide_power = ';
 	printStuff($chapel_foldbackSide{'power'});
+	print ';'."\n";
 
-	print 'var gym_mainSide_power = ';
+	print 'gym_mainSide_power = ';
 	printStuff($gym_mainSide{'power'});
+	print ';'."\n";
 
-	print 'var well_mainCenter_power = ';
+	print 'well_mainCenter_power = ';
 	printStuff($well_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm101A_mainCenter_power = ';
+	print 'rm101A_mainCenter_power = ';
 	printStuff($rm101A_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm101C_mainCenter_power = ';
+	print 'rm101C_mainCenter_power = ';
 	printStuff($rm101C_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm102_mainCenter_power = ';
+	print 'rm102_mainCenter_power = ';
 	printStuff($rm102_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm104_mainCenter_power = ';
+	print 'rm104_mainCenter_power = ';
 	printStuff($rm104_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm128_mainCenter_power = ';
+	print 'rm128_mainCenter_power = ';
 	printStuff($rm128_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm212_mainCenter_power = ';
+	print 'rm212_mainCenter_power = ';
 	printStuff($rm212_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm214_mainCenter_power = ';
+	print 'rm214_mainCenter_power = ';
 	printStuff($rm214_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rm216_mainCenter_power = ';
+	print 'rm216_mainCenter_power = ';
 	printStuff($rm216_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rmRR1_mainCenter_power = ';
+	print 'rmRR1_mainCenter_power = ';
 	printStuff($rmRR1_mainCenter{'power'});
+	print ';'."\n";
 
-	print 'var rmXX_mainCenter_power = ';
+	print 'rmXX_mainCenter_power = ';
 	printStuff($rmXX_mainCenter{'power'});
+	print ';'."\n";
+	
+	print '}';
+	print "\n";
 
 }
 
