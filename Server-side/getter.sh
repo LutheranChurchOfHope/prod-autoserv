@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Put this file at "/opt/scripts/getter.sh"
+# for use with "file.pl".
+
 cd /opt/data/projstatus
 
 wget -O bridge-raw.txt http://10.40.30.75/bridge_status.html

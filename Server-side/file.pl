@@ -3,8 +3,12 @@ use strict;
 use warnings;
 use Switch;
 
+# Put this file at "/opt/scripts/file.pl"
+# for use with "prod-autoserv".
 
-#system('sudo /opt/scripts/getter.sh');
+sub getData {
+	system('/opt/scripts/getter.sh');
+}
 
 # 0. have "getter" get stuff, before this script runs
 # 1. Get variables ready
@@ -298,11 +302,12 @@ sub printer() {
 #print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
 #print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";
 
-
-#&getHashesReady;
-#&getArraysReady;
-doFileRead;
-#&printFileStuff;
-lineByLine;
-printer;
-
+while () {
+	getData;
+	#&getHashesReady;
+	#&getArraysReady;
+	doFileRead;
+	#&printFileStuff;
+	lineByLine;
+	printer;
+}
