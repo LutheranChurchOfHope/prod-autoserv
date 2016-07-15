@@ -302,7 +302,9 @@ sub printer() {
 #print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
 #print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";
 
-while () {
+
+
+doEverythingInScript {
 	getData;
 	#&getHashesReady;
 	#&getArraysReady;
@@ -311,3 +313,4 @@ while () {
 	lineByLine;
 	printer;
 }
+doEverythingInScript;
