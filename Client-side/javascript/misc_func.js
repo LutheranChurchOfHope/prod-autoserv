@@ -35,12 +35,25 @@ var sdRED = '<img src="graphics/red-dot.png" alt="red-dot">';
 var sdORANGE = '<img src="graphics/flashing-orange.gif" alt="warning/error">';
 var sdGREEN = '<img src="graphics/green-dot.png" alt="green-dot">';
 
+// this function stolen from:
+// http://www.philnicholas.com/2009/05/11/reloading-your-javascript-without-reloading-your-page/
+// ...but with a tweak to the last line,
+// to make it actually work
+function LoadMyJs(scriptName) {
+	var docHeadObj = document.getElementsByTagName("head")[0];
+	var dynamicScript = document.createElement("script");
+	dynamicScript.type = "text/javascript";
+	dynamicScript.src = scriptName;
+	docHeadObj.appendChild(dynamicScript);
+}
+		
 //var myVar = setInterval(doStuffOverAndOver,500);
 function goForth() {
 	setInterval(doStuffOverAndOver,500);
 }
 
 function doStuffOverAndOver() {
+	LoadMyJs('javascript/status_vars.js');
 	readVars();
 	runThings();
 }

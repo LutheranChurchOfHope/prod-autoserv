@@ -1,0 +1,21 @@
+
+
+
+- Bash starts while loop
+	- while loop calls Perl
+		- Perl calls Bash
+			- Bash grabs/dumps statuses
+		- Perl parses statusts
+		- Perl outputs statuses
+	- Statuses are dumped in WWW area
+
+
+- web browser requests JavaScript files
+	- one of them is ths statuses
+	- it continuously re-checks the statuses
+	- updates display on page as necessary
+
+	
+
+
+
