@@ -10,9 +10,9 @@
 	- Statuses are dumped in WWW area
 
 
-- web browser requests JavaScript files
-	- one of them is ths statuses
-	- it continuously re-checks the statuses
+- web browser requests JavaScript functions file
+	- one of the functions loads the status...
+	- ...and it continuously re-checks the statuses
 	- updates display on page as necessary
 
 	
