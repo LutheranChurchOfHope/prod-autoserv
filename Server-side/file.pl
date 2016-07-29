@@ -59,25 +59,18 @@ sub doFileRead() {
 		while (my $x = <$fh>) {
 				# cut off the trailing newline
 				chomp $x;
-				# the following two lines are redundant,
+				# the following four lines are redundant,
 				# since they should be caught by the "getter"
-				# script and Extron box, respectively.
+				# script when it outputs the big file.
 				$x =~ s/%02//g;
 				$x =~ s/%03//g;
+				$x =~ s/%0D//g;
+				$x =~ s/%0A//g;
 				# append line $x to array @data
 				push @data, $x;
 		}
 }
 
-#sub printFileStuff() {
-#		foreach my $x (@status) {
-#				if ($x =~ 'panasonicPJLink') {
-#				print $x."\n";
-#				} else {
-#				print "not panasonic PJ Link \n";
-#				} 
-#		}
-#}
 
 sub lineByLine() {
 	my $x;
@@ -115,7 +108,7 @@ sub parseLine {
 	my $data = shift;
 	# split out the line from Extron box
 	our ($proj,$item,$type,$value) = split /,/, $data;
-	
+	$value =~ s/\s+$//;
 	# determine what item (power, lamp hours, etc) we're
 	# looking at, and act upon it.
 	switch ($item) {
@@ -161,40 +154,27 @@ sub parseLine {
 			$hours4 = $value;
 		}
 	}
-		# initilize the hash we're about to use below..
-		# ..with some "dummy" data:
-		%hashName = (
-			proj => 'NO_DATA',
-			type => 'NO_DATA',
-			power => 'NO_DATA',
-		#	hoursAll => 'NO_DATA',
-			hours1 => 'NO_DATA',
-			hours2 => 'NO_DATA',
-			hours3 => 'NO_DATA',
-			hours4 => 'NO_DATA',
-		);
-		
-		%hashName = (
-			proj => $proj,
-			type => $type,
-			power => $power,
-		#	hoursAll => $hoursAll,
-			hours1 => $hours1,
-			hours2 => $hours2,
-			hours3 => $hours3,
-			hours4 => $hours4,
-		);
-#		print %hashName;
 
-		# return our temporary hash,
-		# just for the fun of it:
-		return %hashName;
+	%hashName = (
+		proj => $proj,
+		type => $type,
+		power => $power,
+	#	hoursAll => $hoursAll,
+		hours1 => $hours1,
+		hours2 => $hours2,
+		hours3 => $hours3,
+		hours4 => $hours4,
+	);
+
+	# return our temporary hash,
+	# just for the fun of it:
+	return %hashName;
 }
 
 sub printStuff {
 	my $projvar = shift;
+	#my $projvar = $_[0];
 	if (defined $projvar ) { print "\'".$projvar."\'"; } else { print "\'".'GEEK_ERR'."\'"; }
-	#print ';'."\n";
 }
 
 sub printer() {
@@ -211,10 +191,10 @@ sub printer() {
 	printStuff($bridge_mainLeft{'hours1'});
 	print ', ';
 	printStuff($bridge_mainLeft{'hours2'});
-	print ', ';
-	printStuff($bridge_mainLeft{'hours3'});
-	print ', ';
-	printStuff($bridge_mainLeft{'hours4'});
+	#print ', ';
+	#printStuff($bridge_mainLeft{'hours3'});
+	#print ', ';
+	#printStuff($bridge_mainLeft{'hours4'});
 	print ';'."\n";
 
 	print 'bridge_mainRight_power = ';
@@ -241,53 +221,53 @@ sub printer() {
 	printStuff($chapel_foldbackSide{'power'});
 	print ';'."\n";
 
-	print 'gym_mainSide_power = ';
-	printStuff($gym_mainSide{'power'});
-	print ';'."\n";
-
-	print 'well_mainCenter_power = ';
-	printStuff($well_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm101A_mainCenter_power = ';
-	printStuff($rm101A_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm101C_mainCenter_power = ';
-	printStuff($rm101C_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm102_mainCenter_power = ';
-	printStuff($rm102_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm104_mainCenter_power = ';
-	printStuff($rm104_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm128_mainCenter_power = ';
-	printStuff($rm128_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm212_mainCenter_power = ';
-	printStuff($rm212_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm214_mainCenter_power = ';
-	printStuff($rm214_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rm216_mainCenter_power = ';
-	printStuff($rm216_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rmRR1_mainCenter_power = ';
-	printStuff($rmRR1_mainCenter{'power'});
-	print ';'."\n";
-
-	print 'rmXX_mainCenter_power = ';
-	printStuff($rmXX_mainCenter{'power'});
-	print ';'."\n";
+#	print 'gym_mainSide_power = ';
+#	printStuff($gym_mainSide{'power'});
+#	print ';'."\n";
+#
+#	print 'well_mainCenter_power = ';
+#	printStuff($well_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm101A_mainCenter_power = ';
+#	printStuff($rm101A_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm101C_mainCenter_power = ';
+#	printStuff($rm101C_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm102_mainCenter_power = ';
+#	printStuff($rm102_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm104_mainCenter_power = ';
+#	printStuff($rm104_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm128_mainCenter_power = ';
+#	printStuff($rm128_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm212_mainCenter_power = ';
+#	printStuff($rm212_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm214_mainCenter_power = ';
+#	printStuff($rm214_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rm216_mainCenter_power = ';
+#	printStuff($rm216_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rmRR1_mainCenter_power = ';
+#	printStuff($rmRR1_mainCenter{'power'});
+#	print ';'."\n";
+#
+#	print 'rmXX_mainCenter_power = ';
+#	printStuff($rmXX_mainCenter{'power'});
+#	print ';'."\n";
 	
 	print '}';
 	print "\n";
