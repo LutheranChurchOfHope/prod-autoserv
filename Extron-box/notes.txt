@@ -1,0 +1,10 @@
+Serial command structure, example only. No spaces in actual string, except between "echo" and "var".
+
+Example:
+<!--#echo var="W01*100*10*5LRS|%02QPW%03"-->
+
+Syntax:
+<!--#echo var="W $portNumber_twoDigits * $timeToWaitFirstCharacter_milliseconds *
+$timeToWaitBetweenCharacters_milliseconds * $charactersToReceive_quantity LRS
+| $commandToSend "-->
+

@@ -304,7 +304,7 @@ sub printer() {
 
 
 
-doEverythingInScript {
+sub doEverythingInScript {
 	getData;
 	#&getHashesReady;
 	#&getArraysReady;

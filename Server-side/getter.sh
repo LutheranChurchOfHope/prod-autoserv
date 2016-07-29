@@ -20,5 +20,5 @@ wget -O rm212-raw.txt http://10.40.30.212/room-212_status.html
 wget -O rm214-raw.txt http://10.40.30.214/room-214_status.html
 wget -O rm216-raw.txt http://10.40.30.216/room-216_status.html
 
-cat /opt/data/projstatus/*-raw.txt | grep , | sed s/'%02'//g > dumpstatus.txt
+cat /opt/data/projstatus/*-raw.txt | grep , | sed s/'%02'//g | sed s/'%03'//g | sed s/'%0D'//g | sed s/'%0A'//g > dumpstatus.txt
 #cat /opt/data/projstatus/*-raw.txt | grep , > dumpstatus.txt
