@@ -53,7 +53,7 @@ function goForth() {
 }
 
 function doStuffOverAndOver() {
-	LoadMyJs('javascript/status_vars.js');
+	LoadMyJs('http://prod-autoserv.hopewdm.org/javascript/status_vars.js');
 	readVars();
 	runThings();
 }
