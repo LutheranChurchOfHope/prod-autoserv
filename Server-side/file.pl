@@ -387,7 +387,7 @@ sub printer {
 
 	print 'rm212_mainCenter_power = ';
 	printStuff($rm212_mainCenter{'power'});
-	print '$rm212_mainCenter_hours = ';
+	print 'rm212_mainCenter_hours = ';
 	printStuff(
 		$rm212_mainCenter{$h1}
 #		.$cs.
@@ -400,7 +400,7 @@ sub printer {
 
 	print 'rm214_mainCenter_power = ';
 	printStuff($rm214_mainCenter{'power'});
-	print '$rm214_mainCenter_hours = ';
+	print 'rm214_mainCenter_hours = ';
 	printStuff(
 		$rm214_mainCenter{$h1}
 #		.$cs.
@@ -413,7 +413,7 @@ sub printer {
 
 	print 'rm216_mainCenter_power = ';
 	printStuff($rm216_mainCenter{'power'});
-	print '$rm216_mainCenter_hours = ';
+	print 'rm216_mainCenter_hours = ';
 	printStuff(
 		$rm216_mainCenter{$h1}
 #		.$cs.
