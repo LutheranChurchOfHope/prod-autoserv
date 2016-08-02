@@ -309,6 +309,16 @@ sub printer {
 
 	print 'well_mainCenter_power = ';
 	printStuff($well_mainCenter{'power'});
+	print 'well_mainCenter_hours = ';
+	printStuff(
+		$well_mainCenter{$h1}
+#		.$cs.
+#		$well_mainCenter{$h2}
+#		.$cs.
+#		$well_mainCenter{$h3}
+#		.$cs.
+#		$well_mainCenter{$h4}
+	);
 
 	print 'rm101A_mainCenter_power = ';
 	printStuff($rm101A_mainCenter{'power'});
