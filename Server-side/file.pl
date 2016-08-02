@@ -322,33 +322,133 @@ sub printer {
 
 	print 'rm101A_mainCenter_power = ';
 	printStuff($rm101A_mainCenter{'power'});
+	print 'rm101A_mainCenter_hours = ';
+	printStuff(
+		$rm101A_mainCenter{$h1}
+#		.$cs.
+#		$rm101A_mainCenter{$h2}
+#		.$cs.
+#		$rm101A_mainCenter{$h3}
+#		.$cs.
+#		$rm101A_mainCenter{$h4}
+	);
 
 	print 'rm101C_mainCenter_power = ';
 	printStuff($rm101C_mainCenter{'power'});
+	print 'rm101C_mainCenter_hours = ';
+	printStuff(
+		$rm101C_mainCenter{$h1}
+#		.$cs.
+#		$rm101C_mainCenter{$h2}
+#		.$cs.
+#		$rm101C_mainCenter{$h3}
+#		.$cs.
+#		$rm101C_mainCenter{$h4}
+	);
 
 	print 'rm102_mainCenter_power = ';
 	printStuff($rm102_mainCenter{'power'});
+	print 'rm102_mainCenter_hours = ';
+	printStuff(
+		$rm102_mainCenter{$h1}
+#		.$cs.
+#		$rm102_mainCenter{$h2}
+#		.$cs.
+#		$rm102_mainCenter{$h3}
+#		.$cs.
+#		$rm102_mainCenter{$h4}
+	);
 
 	print 'rm104_mainCenter_power = ';
 	printStuff($rm104_mainCenter{'power'});
+	print 'rm104_mainCenter_hours = ';
+	printStuff(
+		$rm104_mainCenter{$h1}
+#		.$cs.
+#		$rm104_mainCenter{$h2}
+#		.$cs.
+#		$rm104_mainCenter{$h3}
+#		.$cs.
+#		$rm104_mainCenter{$h4}
+	);
 
 	print 'rm128_mainCenter_power = ';
 	printStuff($rm128_mainCenter{'power'});
+	print 'rm128_mainCenter_hours = ';
+	printStuff(
+		$rm128_mainCenter{$h1}
+#		.$cs.
+#		$rm128_mainCenter{$h2}
+#		.$cs.
+#		$rm128_mainCenter{$h3}
+#		.$cs.
+#		$rm128_mainCenter{$h4}
+	);
 
 	print 'rm212_mainCenter_power = ';
 	printStuff($rm212_mainCenter{'power'});
+	print '$rm212_mainCenter_hours = ';
+	printStuff(
+		$rm212_mainCenter{$h1}
+#		.$cs.
+#		$rm212_mainCenter{$h2}
+#		.$cs.
+#		$rm212_mainCenter{$h3}
+#		.$cs.
+#		$rm212_mainCenter{$h4}
+	);
 
 	print 'rm214_mainCenter_power = ';
 	printStuff($rm214_mainCenter{'power'});
+	print '$rm214_mainCenter_hours = ';
+	printStuff(
+		$rm214_mainCenter{$h1}
+#		.$cs.
+#		$rm214_mainCenter{$h2}
+#		.$cs.
+#		$rm214_mainCenter{$h3}
+#		.$cs.
+#		$rm214_mainCenter{$h4}
+	);
 
 	print 'rm216_mainCenter_power = ';
 	printStuff($rm216_mainCenter{'power'});
+	print '$rm216_mainCenter_hours = ';
+	printStuff(
+		$rm216_mainCenter{$h1}
+#		.$cs.
+#		$rm216_mainCenter{$h2}
+#		.$cs.
+#		$rm216_mainCenter{$h3}
+#		.$cs.
+#		$rm216_mainCenter{$h4}
+	);
 
 	print 'rmRR1_mainCenter_power = ';
 	printStuff($rmRR1_mainCenter{'power'});
+	print 'rmRR1_mainCenter_hours = ';
+	printStuff(
+		$rmRR1_mainCenter{$h1}
+#		.$cs.
+#		$rmRR1_mainCenter{$h2}
+#		.$cs.
+#		$rmRR1_mainCenter{$h3}
+#		.$cs.
+#		$rmRR1_mainCenter{$h4}
+	);
 
 #	print 'rmXX_mainCenter_power = ';
 #	printStuff($rmXX_mainCenter{'power'});
+#	print 'rmXX_mainCenter_hours = ';
+#	printStuff(
+#		$rmXX_mainCenter{$h1}
+#		.$cs.
+#		$rmXX_mainCenter{$h2}
+#		.$cs.
+#		$rmXX_mainCenter{$h3}
+#		.$cs.
+#		$rmXX_mainCenter{$h4}
+#	);
 
 
 	print '}';
