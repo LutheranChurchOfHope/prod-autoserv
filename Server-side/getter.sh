@@ -13,6 +13,7 @@ wget -O well-raw.txt http://10.40.30.130/well_status.html
 wget -O rm128-raw.txt http://10.40.30.128/room-128_status.html
 wget -O rm104-raw.txt http://10.40.30.104/room-104_status.html
 wget -O rm102-raw.txt http://10.40.30.102/room-102_status.html
+wget -O rm102-raw.txt http://10.40.30.102/room-rr1_status.html
 
 wget -O rm101a-raw.txt http://10.40.30.98/room-101a_status.html
 wget -O rm101c-raw.txt http://10.40.30.101/room-101c_status.html
