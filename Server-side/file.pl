@@ -174,100 +174,141 @@ sub parseLine {
 sub printStuff {
 	my $projvar = shift;
 	#my $projvar = $_[0];
-	if (defined $projvar ) { print "\'".$projvar."\'"; } else { print "\'".'GEEK_ERR'."\'"; }
+	if (defined $projvar ) { 
+		if ($projvar ne '') {
+			print "\'".$projvar."\'";
+		}
+		else {
+			print "\'".'GEEK_ERR'."\'";
+		}
+	}
+	else {
+		print "\'".'GEEK_ERR'."\'";
+	}
+	print ';'."\n";
+	#if (defined $projvar ) { print $projvar; } else { print 'GEEK_ERR'; }
 }
 
 sub printer() {
 
+	# "cs" = "comma space"
+	my $cs = ', ';
+	my $h1 = 'hours1';
+	my $h2 = 'hours2';
+	my $h3 = 'hours2';
+	my $h4 = 'hours2';
+
 	print 'function readVars() {';
 	print "\n";
-
+	
 	# print stuff out to JavaScript
 
 	print 'bridge_mainLeft_power = ';
 	printStuff($bridge_mainLeft{'power'});
-	print ';'."\n";
 	print 'bridge_mainLeft_hours = ';
-	printStuff($bridge_mainLeft{'hours1'});
-	print ', ';
-	printStuff($bridge_mainLeft{'hours2'});
-	#print ', ';
-	#printStuff($bridge_mainLeft{'hours3'});
-	#print ', ';
-	#printStuff($bridge_mainLeft{'hours4'});
-	print ';'."\n";
+	printStuff(
+		$bridge_mainLeft{$h1}
+		.$cs.
+		$bridge_mainLeft{$h2}
+	);
 
 	print 'bridge_mainRight_power = ';
 	printStuff($bridge_mainRight{'power'});
-	print ';'."\n";
+	print 'bridge_mainLeft_hours = ';
+	printStuff(
+		$bridge_mainRight{$h1}
+		.$cs.
+		$bridge_mainRight{$h2}
+	);
 
 	print 'bridge_mainCenter_power = ';
 	printStuff($bridge_mainCenter{'power'});
-	print ';'."\n";
+	print 'bridge_mainCenter_hours = ';
+	printStuff(
+		$bridge_mainCenter{$h1}
+		.$cs.
+		$bridge_mainCenter{$h2}
+		.$cs.
+		$bridge_mainCenter{$h3}
+		.$cs.
+		$bridge_mainCenter{$h4}
+	);
 
 	print 'bridge_foldbackCenter_power = ';
 	printStuff($bridge_foldbackCenter{'power'});
-	print ';'."\n";
+	print 'bridge_foldbackCenter_hours = ';
+	printStuff(
+		$bridge_foldbackCenter{$h1}
+		.$cs.
+		$bridge_foldbackCenter{$h2}
+	);
 
 	print 'chapel_mainSide_power = ';
 	printStuff($chapel_mainSide{'power'});
-	print ';'."\n";
+	print 'chapel_mainSide_hours = ';
+	printStuff(
+		$chapel_mainSide{$h1}
+		.$cs.
+		$chapel_mainSide{$h2}
+	);
 	
 	print 'chapel_mainCenter_power = ';
 	printStuff($chapel_mainCenter{'power'});
-	print ';'."\n";
+	print 'chapel_mainCenter_hours = ';
+	printStuff(
+		$chapel_mainCenter{$h1}
+		.$cs.
+		$chapel_mainCenter{$h2}
+	);
 
 	print 'chapel_foldbackSide_power = ';
 	printStuff($chapel_foldbackSide{'power'});
-	print ';'."\n";
+	print 'chapel_foldbackSide_hours = ';
+	printStuff(
+		$chapel_foldbackSide{$h1}
+	);
 
-#	print 'gym_mainSide_power = ';
-#	printStuff($gym_mainSide{'power'});
-#	print ';'."\n";
-#
+	print 'gym_mainSide_power = ';
+	printStuff($gym_mainSide{'power'});
+	print 'gym_mainSide_hours = ';
+	printStuff(
+		$gym_mainSide{$h1}
+		.$cs.
+		$gym_mainSide{$h2}
+	);
+
 #	print 'well_mainCenter_power = ';
 #	printStuff($well_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm101A_mainCenter_power = ';
 #	printStuff($rm101A_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm101C_mainCenter_power = ';
 #	printStuff($rm101C_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm102_mainCenter_power = ';
 #	printStuff($rm102_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm104_mainCenter_power = ';
 #	printStuff($rm104_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm128_mainCenter_power = ';
 #	printStuff($rm128_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm212_mainCenter_power = ';
 #	printStuff($rm212_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm214_mainCenter_power = ';
 #	printStuff($rm214_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rm216_mainCenter_power = ';
 #	printStuff($rm216_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rmRR1_mainCenter_power = ';
 #	printStuff($rmRR1_mainCenter{'power'});
-#	print ';'."\n";
 #
 #	print 'rmXX_mainCenter_power = ';
 #	printStuff($rmXX_mainCenter{'power'});
-#	print ';'."\n";
 	
 	print '}';
 	print "\n";
