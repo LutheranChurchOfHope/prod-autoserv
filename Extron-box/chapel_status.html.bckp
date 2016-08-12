@@ -4,7 +4,9 @@
 <h3>
 chapel_mainSide,power,panasonicPJLink,<!--#echo var="W01*100*10*5LRS|%02QPW%03"-->
 <br>
-chapel_mainSide,lampHoursAll,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:1%03"--> <!--#echo var="W01*100*10*6LRS|%02Q$L:2%03"-->
+chapel_mainSide,lampHours1,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:1%03"-->
+<br>
+chapel_mainSide,lampHours2,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:2%03"-->
 <br>
 chapel_mainCenter,power,sanyoPLC,<!--#echo var="W02*100*10*3LRS|CR0%0D"-->
 <br>

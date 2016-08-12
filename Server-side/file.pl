@@ -75,26 +75,24 @@ sub doFileRead() {
 sub lineByLine() {
 	my $x;
 	foreach $x (@data) {
-		switch ($x) {
-			case m/bridge_mainLeft/ { %bridge_mainLeft = parseLine($x); }
-			case m/bridge_mainRight/ { %bridge_mainRight = parseLine($x); }
-			case m/bridge_mainCenter/ { %bridge_mainCenter = parseLine($x); }
-			case m/bridge_foldbackCenter/ { %bridge_foldbackCenter = parseLine($x); }
-			case m/chapel_mainSide/ { %chapel_mainSide = parseLine($x); }
-			case m/chapel_mainCenter/ { %chapel_mainCenter = parseLine($x); }
-			case m/chapel_foldbackSide/ { %chapel_foldbackSide = parseLine($x); }
-			case m/gym_mainSide/ { %gym_mainSide = parseLine($x); }
-			case m/well_mainCenter/ { %well_mainCenter = parseLine($x); }
-			case m/rm101A_mainCenter/ { %rm101A_mainCenter = parseLine($x); }
-			case m/rm101C_mainCenter/ { %rm101C_mainCenter = parseLine($x); }
-			case m/rm102_mainCenter/ { %rm102_mainCenter = parseLine($x); }
-			case m/rm104_mainCenter/ { %rm104_mainCenter = parseLine($x); }
-			case m/rm128_mainCenter/ { %rm128_mainCenter = parseLine($x); }
-			case m/rm212_mainCenter/ { %rm212_mainCenter = parseLine($x); }
-			case m/rm214_mainCenter/ { %rm214_mainCenter = parseLine($x); }
-			case m/rm216_mainCenter/ { %rm216_mainCenter = parseLine($x); }
-			case m/rmRR1_mainCenter/ { %rmRR1_mainCenter = parseLine($x); }
-		}
+		if ($x =~ m/bridge_mainLeft/) { %bridge_mainLeft = parseLine($x); }
+		if ($x =~ m/bridge_mainRight/) { %bridge_mainRight = parseLine($x); }
+		if ($x =~ m/bridge_mainCenter/) { %bridge_mainCenter = parseLine($x); }
+		if ($x =~ m/bridge_foldbackCenter/) { %bridge_foldbackCenter = parseLine($x); }
+		if ($x =~ m/chapel_mainSide/) { %chapel_mainSide = parseLine($x); }
+		if ($x =~ m/chapel_mainCenter/) { %chapel_mainCenter = parseLine($x); }
+		if ($x =~ m/chapel_foldbackSide/) { %chapel_foldbackSide = parseLine($x); }
+		if ($x =~ m/gym_mainSide/) { %gym_mainSide = parseLine($x); }
+		if ($x =~ m/well_mainCenter/) { %well_mainCenter = parseLine($x); }
+		if ($x =~ m/rm101A_mainCenter/) { %rm101A_mainCenter = parseLine($x); }
+		if ($x =~ m/rm101C_mainCenter/) { %rm101C_mainCenter = parseLine($x); }
+		if ($x =~ m/rm102_mainCenter/) { %rm102_mainCenter = parseLine($x); }
+		if ($x =~ m/rm104_mainCenter/) { %rm104_mainCenter = parseLine($x); }
+		if ($x =~ m/rm128_mainCenter/) { %rm128_mainCenter = parseLine($x); }
+		if ($x =~ m/rm212_mainCenter/) { %rm212_mainCenter = parseLine($x); }
+		if ($x =~ m/rm214_mainCenter/) { %rm214_mainCenter = parseLine($x); }
+		if ($x =~ m/rm216_mainCenter/) { %rm216_mainCenter = parseLine($x); }
+		if ($x =~ m/rmRR1_mainCenter/) { %rmRR1_mainCenter = parseLine($x); }
 	}
 }
 #TODO: try something like
@@ -102,67 +100,63 @@ sub lineByLine() {
 #$status=$statusHashname{$1}
 sub parseLine {
 	# declare some vars
-	our %hashName;
-	my ($power,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+	my %hashName;
+	our ($power,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 	# $data is whatever was passed to us
 	my $data = shift;
 	# split out the line from Extron box
-	our ($proj,$item,$type,$value) = split /,/, $data;
+	my ($proj,$item,$type,$value) = split /,/, $data;
 	$value =~ s/\s+$//;
 	# determine what item (power, lamp hours, etc) we're
 	# looking at, and act upon it.
-	switch ($item) {
-		case m/power/ {
-			switch ($type) {
-				case m/panasonicPJLink/ {
-					switch ($value) {
-						case m/000/ { $power = 'off'; }
-						case m/001/ { $power = 'on'; }
-					}
+	if ($item =~ m/power/) {
+		if ($type =~ m/panasonicPJLink/) {
+			if ($value =~ m/000/) {
+				$power = 'off';
+			}
+			else {
+				if ($value =~ m/001/) {
+					$power = 'on';
 				}
-				case m/sanyoPLC/ {
-					switch ($value) {
-						case m/00/ { $power = 'on'; }
-						case m/80/ { $power = 'off'; }
-						case m/40/ { $power = 'Countdown'; }
-						case m/20/ { $power = 'Cooling Down'; }
-						case m/10/ { $power = 'Power Malfunction'; }
-						case m/28/ { $power = 'Cooling down at the temperature anomaly'; }
-						case m/02/ { $power = 'Unable to receive the RC232C command.'; }
-						case m/24/ { $power = 'Cooling down at Power Management mode'; }
-						case m/04/ { $power = 'Power Management mode after Cooling down'; }
-						case m/21/ { $power = 'Cooling down after the projector is turned off when the lamps are out.'; }
-						case m/81/ { $power = 'Stand-by mode after Cooling down when the lamps are out.'; }
-						case m/88/ { $power = 'Stand-by mode after Cooling down at the temperature anomaly.'; }
+				else {
+					$power = 'no match for power';
+					#errorWrapper($power);
+				}
+			}
+		}
+		else {
+			if ($type =~ m/sanyoPLC/) {
+				if ($value =~ m/00/) {
+					$power = 'on';
+				}
+				else {
+					if ($value =~ m/80/) {
+						$power = 'off';
+					}
+					else {
+						if (($value =~ m/40/) || ($value =~ m/20/)) {
+							$power = 'in-between';
+						}
+						else {
+							$power = 'some sort of error has occured';
+							#errorWrapper($power);
+						}
 					}
 				}
 			}
 		}
-
-		case m/lampHoursAll/ {
+	}
+	else {
+		if ($item =~ m/lampHoursAll/) {
 			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
 		}
-
-#		case m/lampHoursAll_sanyo/ {
-#			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
-#		}
-#		case m/lampHoursAll_panasonic/ {
-#			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
-#		}
-
-#		case m/lampHours1/ {
-#			$hours1 = $value;
-#		}
-#		case m/lampHours2/ {
-#			$hours2 = $value;
-#		}
-#		case m/lampHours3/ {
-#			$hours3 = $value;
-#		}
-#		case m/lampHours4/ {
-#			$hours4 = $value;
-#		}
+		else {
+			my $error = 'This does not seem to be lamp hours or power.';
+			#errorWrapper($error);
+		}
 	}
+
+
 
 	%hashName = (
 		proj => $proj,
@@ -175,24 +169,41 @@ sub parseLine {
 		hours4 => $hours4,
 	);
 
+
+#	print %hashName;
+#	print "\n";
+#	print $hashName{'power'};
+#	print "\n\n\n";
 	# return our temporary hash,
 	# just for the fun of it:
 	return %hashName;
 }
-
+sub errorWrapper {
+	my $message = shift;
+	print "\n\n\n\n\n";
+	print '**********';
+	print $message;
+	print '**********';
+	print "\n\n\n\n\n";
+}
 sub printStuff {
 	my $projvar = shift;
 	#my $projvar = $_[0];
 	if (defined $projvar ) { 
 		if ($projvar ne '') {
-			print "\'".$projvar."\'";
+			if ($projvar ne 'x') {
+				print "\'".$projvar."\'";
+			}
+			else {
+				print "\'".'GEEK_ERR_eq_x'."\'";
+			}
 		}
 		else {
-			print "\'".'GEEK_ERR'."\'";
+			print "\'".'GEEK_ERR_empty_string'."\'";
 		}
 	}
 	else {
-		print "\'".'GEEK_ERR'."\'";
+		print "\'".'GEEK_ERR_undefined_value'."\'";
 	}
 	print ';'."\n";
 	#if (defined $projvar ) { print $projvar; } else { print 'GEEK_ERR'; }

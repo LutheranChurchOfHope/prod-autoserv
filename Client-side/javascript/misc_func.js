@@ -58,9 +58,10 @@ var rm212_mainCenter_indicator = 'GEEK_ERR';
 var rm214_mainCenter_indicator = 'GEEK_ERR';
 var rm216_mainCenter_indicator = 'GEEK_ERR';
 
-var sdRED = '<img src="graphics/red-dot.png" alt="red-dot">';
-var sdORANGE = '<img src="graphics/flashing-orange.gif" alt="warning/error">';
+var sdBLUE = '<img src="graphics/blue-dot.png" alt="blue-dot">';
 var sdGREEN = '<img src="graphics/green-dot.png" alt="green-dot">';
+var sdORANGE = '<img src="graphics/flashing-orange.gif" alt="warning/error">';
+var sdRED = '<img src="graphics/red-dot.png" alt="red-dot">';
 
 // this function stolen from:
 // http://www.philnicholas.com/2009/05/11/reloading-your-javascript-without-reloading-your-page/
@@ -207,6 +208,11 @@ function statusDot(sdVal) { // "sd" = "status dot"
 		if (sdVal == "on") {
 			return sdGREEN;
 		}
+		else {
+			if (sdVal == "in-between") {
+				return sdBLUE;
+			}
+		}			
 		else {
 			return sdORANGE;
 		}
