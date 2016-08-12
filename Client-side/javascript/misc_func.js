@@ -212,9 +212,9 @@ function statusDot(sdVal) { // "sd" = "status dot"
 			if (sdVal == "in-between") {
 				return sdBLUE;
 			}
-		}			
-		else {
-			return sdORANGE;
+			else {
+				return sdORANGE;
+			}
 		}
 	}
 }
