@@ -4,7 +4,9 @@
 <h3>
 bridge_mainLeft,power,panasonicPJLink,<!--#echo var="W01*100*10*5LRS|%02QPW%03"-->
 <br>
-bridge_mainLeft,lampHoursAll,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:1%03"--> <!--#echo var="W01*100*10*6LRS|%02Q$L:2%03"-->
+bridge_mainLeft,lampHours1,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:1%03"-->
+<br>
+bridge_mainLeft,lampHours2,panasonicPJLink,<!--#echo var="W01*100*10*6LRS|%02Q$L:2%03"-->
 <br>
 bridge_mainRight,power,panasonicPJLink,<!--#echo var="W02*100*10*5LRS|%02QPW%03"-->
 <br>

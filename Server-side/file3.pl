@@ -103,7 +103,7 @@ sub lineByLine() {
 sub parseLine {
 	# declare some vars
 	our %hashName;
-	my ($power,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+	our ($power,$hoursAll,$hours1,$hours2,$hours3,$hours4);
 	# $data is whatever was passed to us
 	my $data = shift;
 	# split out the line from Extron box
@@ -138,30 +138,21 @@ sub parseLine {
 				}
 			}
 		}
-
 		case m/lampHoursAll/ {
 			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
 		}
-
-#		case m/lampHoursAll_sanyo/ {
-#			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
-#		}
-#		case m/lampHoursAll_panasonic/ {
-#			($hours1,$hours2,$hours3,$hours4) = split / /, $value;
-#		}
-
-#		case m/lampHours1/ {
-#			$hours1 = $value;
-#		}
-#		case m/lampHours2/ {
-#			$hours2 = $value;
-#		}
-#		case m/lampHours3/ {
-#			$hours3 = $value;
-#		}
-#		case m/lampHours4/ {
-#			$hours4 = $value;
-#		}
+		case m/lampHours1/ {
+			$hours1 = $value;
+		}
+		case m/lampHours2/ {
+			$hours2 = $value;
+		}
+		case m/lampHours3/ {
+			$hours3 = $value;
+		}
+		case m/lampHours4/ {
+			$hours4 = $value;
+		}
 	}
 
 	%hashName = (
@@ -198,7 +189,7 @@ sub printStuff {
 	#if (defined $projvar ) { print $projvar; } else { print 'GEEK_ERR'; }
 }
 
-sub printer {
+sub printer() {
 
 	# "cs" = "comma space"
 	my $cs = ', ';
@@ -219,23 +210,15 @@ sub printer {
 		$bridge_mainLeft{$h1}
 		.$cs.
 		$bridge_mainLeft{$h2}
-#		.$cs.
-#		$bridge_mainLeft{$h3}
-#		.$cs.
-#		$bridge_mainLeft{$h4}
 	);
 
 	print 'bridge_mainRight_power = ';
 	printStuff($bridge_mainRight{'power'});
-	print 'bridge_mainRight_hours = ';
+	print 'bridge_mainLeft_hours = ';
 	printStuff(
 		$bridge_mainRight{$h1}
 		.$cs.
 		$bridge_mainRight{$h2}
-#		.$cs.
-#		$bridge_mainRight{$h3}
-#		.$cs.
-#		$bridge_mainRight{$h4}
 	);
 
 	print 'bridge_mainCenter_power = ';
@@ -258,10 +241,6 @@ sub printer {
 		$bridge_foldbackCenter{$h1}
 		.$cs.
 		$bridge_foldbackCenter{$h2}
-#		.$cs.
-#		$bridge_foldbackCenter{$h3}
-#		.$cs.
-#		$bridge_foldbackCenter{$h4}
 	);
 
 	print 'chapel_mainSide_power = ';
@@ -271,10 +250,6 @@ sub printer {
 		$chapel_mainSide{$h1}
 		.$cs.
 		$chapel_mainSide{$h2}
-#		.$cs.
-#		$chapel_mainSide{$h3}
-#		.$cs.
-#		$chapel_mainSide{$h4}
 	);
 	
 	print 'chapel_mainCenter_power = ';
@@ -284,10 +259,6 @@ sub printer {
 		$chapel_mainCenter{$h1}
 		.$cs.
 		$chapel_mainCenter{$h2}
-#		.$cs.
-#		$chapel_mainCenter{$h3}
-#		.$cs.
-#		$chapel_mainCenter{$h4}
 	);
 
 	print 'chapel_foldbackSide_power = ';
@@ -295,12 +266,6 @@ sub printer {
 	print 'chapel_foldbackSide_hours = ';
 	printStuff(
 		$chapel_foldbackSide{$h1}
-#		.$cs.
-#		$chapel_foldbackSide{$h2}
-#		.$cs.
-#		$chapel_foldbackSide{$h3}
-#		.$cs.
-#		$chapel_foldbackSide{$h4}
 	);
 
 	print 'gym_mainSide_power = ';
@@ -310,156 +275,41 @@ sub printer {
 		$gym_mainSide{$h1}
 		.$cs.
 		$gym_mainSide{$h2}
-#		.$cs.
-#		$gym_mainSide{$h3}
-#		.$cs.
-#		$gym_mainSide{$h4}
 	);
 
-	print 'well_mainCenter_power = ';
-	printStuff($well_mainCenter{'power'});
-	print 'well_mainCenter_hours = ';
-	printStuff(
-		$well_mainCenter{$h1}
-#		.$cs.
-#		$well_mainCenter{$h2}
-#		.$cs.
-#		$well_mainCenter{$h3}
-#		.$cs.
-#		$well_mainCenter{$h4}
-	);
-
-	print 'rm101A_mainCenter_power = ';
-	printStuff($rm101A_mainCenter{'power'});
-	print 'rm101A_mainCenter_hours = ';
-	printStuff(
-		$rm101A_mainCenter{$h1}
-#		.$cs.
-#		$rm101A_mainCenter{$h2}
-#		.$cs.
-#		$rm101A_mainCenter{$h3}
-#		.$cs.
-#		$rm101A_mainCenter{$h4}
-	);
-
-	print 'rm101C_mainCenter_power = ';
-	printStuff($rm101C_mainCenter{'power'});
-	print 'rm101C_mainCenter_hours = ';
-	printStuff(
-		$rm101C_mainCenter{$h1}
-#		.$cs.
-#		$rm101C_mainCenter{$h2}
-#		.$cs.
-#		$rm101C_mainCenter{$h3}
-#		.$cs.
-#		$rm101C_mainCenter{$h4}
-	);
-
-	print 'rm102_mainCenter_power = ';
-	printStuff($rm102_mainCenter{'power'});
-	print 'rm102_mainCenter_hours = ';
-	printStuff(
-		$rm102_mainCenter{$h1}
-#		.$cs.
-#		$rm102_mainCenter{$h2}
-#		.$cs.
-#		$rm102_mainCenter{$h3}
-#		.$cs.
-#		$rm102_mainCenter{$h4}
-	);
-
-	print 'rm104_mainCenter_power = ';
-	printStuff($rm104_mainCenter{'power'});
-	print 'rm104_mainCenter_hours = ';
-	printStuff(
-		$rm104_mainCenter{$h1}
-#		.$cs.
-#		$rm104_mainCenter{$h2}
-#		.$cs.
-#		$rm104_mainCenter{$h3}
-#		.$cs.
-#		$rm104_mainCenter{$h4}
-	);
-
-	print 'rm128_mainCenter_power = ';
-	printStuff($rm128_mainCenter{'power'});
-	print 'rm128_mainCenter_hours = ';
-	printStuff(
-		$rm128_mainCenter{$h1}
-#		.$cs.
-#		$rm128_mainCenter{$h2}
-#		.$cs.
-#		$rm128_mainCenter{$h3}
-#		.$cs.
-#		$rm128_mainCenter{$h4}
-	);
-
-	print 'rm212_mainCenter_power = ';
-	printStuff($rm212_mainCenter{'power'});
-	print 'rm212_mainCenter_hours = ';
-	printStuff(
-		$rm212_mainCenter{$h1}
-#		.$cs.
-#		$rm212_mainCenter{$h2}
-#		.$cs.
-#		$rm212_mainCenter{$h3}
-#		.$cs.
-#		$rm212_mainCenter{$h4}
-	);
-
-	print 'rm214_mainCenter_power = ';
-	printStuff($rm214_mainCenter{'power'});
-	print 'rm214_mainCenter_hours = ';
-	printStuff(
-		$rm214_mainCenter{$h1}
-#		.$cs.
-#		$rm214_mainCenter{$h2}
-#		.$cs.
-#		$rm214_mainCenter{$h3}
-#		.$cs.
-#		$rm214_mainCenter{$h4}
-	);
-
-	print 'rm216_mainCenter_power = ';
-	printStuff($rm216_mainCenter{'power'});
-	print 'rm216_mainCenter_hours = ';
-	printStuff(
-		$rm216_mainCenter{$h1}
-#		.$cs.
-#		$rm216_mainCenter{$h2}
-#		.$cs.
-#		$rm216_mainCenter{$h3}
-#		.$cs.
-#		$rm216_mainCenter{$h4}
-	);
-
-	print 'rmRR1_mainCenter_power = ';
-	printStuff($rmRR1_mainCenter{'power'});
-	print 'rmRR1_mainCenter_hours = ';
-	printStuff(
-		$rmRR1_mainCenter{$h1}
-#		.$cs.
-#		$rmRR1_mainCenter{$h2}
-#		.$cs.
-#		$rmRR1_mainCenter{$h3}
-#		.$cs.
-#		$rmRR1_mainCenter{$h4}
-	);
-
+#	print 'well_mainCenter_power = ';
+#	printStuff($well_mainCenter{'power'});
+#
+#	print 'rm101A_mainCenter_power = ';
+#	printStuff($rm101A_mainCenter{'power'});
+#
+#	print 'rm101C_mainCenter_power = ';
+#	printStuff($rm101C_mainCenter{'power'});
+#
+#	print 'rm102_mainCenter_power = ';
+#	printStuff($rm102_mainCenter{'power'});
+#
+#	print 'rm104_mainCenter_power = ';
+#	printStuff($rm104_mainCenter{'power'});
+#
+#	print 'rm128_mainCenter_power = ';
+#	printStuff($rm128_mainCenter{'power'});
+#
+#	print 'rm212_mainCenter_power = ';
+#	printStuff($rm212_mainCenter{'power'});
+#
+#	print 'rm214_mainCenter_power = ';
+#	printStuff($rm214_mainCenter{'power'});
+#
+#	print 'rm216_mainCenter_power = ';
+#	printStuff($rm216_mainCenter{'power'});
+#
+#	print 'rmRR1_mainCenter_power = ';
+#	printStuff($rmRR1_mainCenter{'power'});
+#
 #	print 'rmXX_mainCenter_power = ';
 #	printStuff($rmXX_mainCenter{'power'});
-#	print 'rmXX_mainCenter_hours = ';
-#	printStuff(
-#		$rmXX_mainCenter{$h1}
-#		.$cs.
-#		$rmXX_mainCenter{$h2}
-#		.$cs.
-#		$rmXX_mainCenter{$h3}
-#		.$cs.
-#		$rmXX_mainCenter{$h4}
-#	);
-
-
+	
 	print '}';
 	print "\n";
 
