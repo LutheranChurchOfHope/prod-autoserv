@@ -3,11 +3,11 @@ use strict;
 use warnings;
 use Switch;
 
-# Put this file at "/opt/scripts/file.pl"
+# Put this file at "/opt/scripts/projector-status/file.pl"
 # for use with "prod-autoserv".
 
 sub getData {
-	system('/opt/scripts/getter.sh');
+	system('/opt/scripts/projector-status/getter.sh');
 }
 
 # 0. have "getter" get stuff, before this script runs
