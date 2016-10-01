@@ -16,6 +16,15 @@
 	- updates display on page as necessary
 
 	
+All places code might have to change,
+ whenever we change out a projector for a different brand,
+  or one with a different number of lamps,
+   or something like that:
+- Perl file
+- "status" HTML file on Extron box
+- "control" HTML file on Extron box
+- JavaScript variables file
+- midnight off script
 
 
 
