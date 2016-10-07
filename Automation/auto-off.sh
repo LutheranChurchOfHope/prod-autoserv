@@ -83,7 +83,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.130/file.html?cmd=W06RS|ka%20%30
 # -----
 
 # mainCenter / Panasonic
-wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W02RS|%02POF%03"
+wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W02RS|%02POF%03" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -95,7 +97,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W02RS|%02POF%03
 ## -----
 #
 ## mainCenter / Panasonic
-#wget -o /dev/null -O /dev/null "http://10.40.30.99/file.html?cmd=W02RS|%02POF%03"
+#wget -o /dev/null -O /dev/null "http://10.40.30.99/file.html?cmd=W02RS|%02POF%03" // projector off
+#wget -o /dev/null -O /dev/null "http://10.40.30.99/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+#wget -o /dev/null -O /dev/null "http://10.40.30.99/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 #
 ## ***** ***** *****
 ## ***** ***** *****
@@ -105,7 +109,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.98/file.html?cmd=W02RS|%02POF%03
 # -----
 
 # mainCenter / Panasonic
-wget -o /dev/null -O /dev/null "http://10.40.30.101/file.html?cmd=W02RS|%02POF%03"
+wget -o /dev/null -O /dev/null "http://10.40.30.101/file.html?cmd=W02RS|%02POF%03" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.101/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.101/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -117,7 +123,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.101/file.html?cmd=W02RS|%02POF%0
 # -----
 
 # mainCenter / Panasonic
-wget -o /dev/null -O /dev/null "http://10.40.30.102/file.html?cmd=W02RS|%02POF%03"
+wget -o /dev/null -O /dev/null "http://10.40.30.102/file.html?cmd=W02RS|%02POF%03" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.102/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.102/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -129,7 +137,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.102/file.html?cmd=W02RS|%02POF%0
 # -----
 
 # mainCenter / Panasonic
-wget -o /dev/null -O /dev/null "http://10.40.30.104/file.html?cmd=W02RS|%02POF%03"
+wget -o /dev/null -O /dev/null "http://10.40.30.104/file.html?cmd=W02RS|%02POF%03" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.104/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.104/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -141,7 +151,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.104/file.html?cmd=W02RS|%02POF%0
 # -----
 
 # mainCenter / Panasonic
-wget -o /dev/null -O /dev/null "http://10.40.30.128/file.html?cmd=W02RS|%02POF%03"
+wget -o /dev/null -O /dev/null "http://10.40.30.128/file.html?cmd=W02RS|%02POF%03" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.128/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.128/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -153,7 +165,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.128/file.html?cmd=W02RS|%02POF%0
 # -----
 
 # mainCenter / Sanyo
-wget -o /dev/null -O /dev/null "http://10.40.30.212/file.html?cmd=W02RS|C01%0D"
+wget -o /dev/null -O /dev/null "http://10.40.30.212/file.html?cmd=W02RS|C01%0D" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.212/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.212/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -165,7 +179,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.212/file.html?cmd=W02RS|C01%0D"
 # -----
 
 # mainCenter / Sanyo
-wget -o /dev/null -O /dev/null "http://10.40.30.214/file.html?cmd=W02RS|C01%0D"
+wget -o /dev/null -O /dev/null "http://10.40.30.214/file.html?cmd=W02RS|C01%0D" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.214/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.214/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -177,7 +193,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.214/file.html?cmd=W02RS|C01%0D"
 # -----
 
 # mainCenter / Sanyo
-wget -o /dev/null -O /dev/null "http://10.40.30.216/file.html?cmd=W02RS|C01%0D"
+wget -o /dev/null -O /dev/null "http://10.40.30.216/file.html?cmd=W02RS|C01%0D" // projector off
+wget -o /dev/null -O /dev/null "http://10.40.30.216/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up
+wget -o /dev/null -O /dev/null "http://10.40.30.216/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
@@ -189,7 +207,9 @@ wget -o /dev/null -O /dev/null "http://10.40.30.216/file.html?cmd=W02RS|C01%0D"
 # -----
 
 # mainCenter / Sanyo
-wget -o /dev/null -O /dev/null "http://10.40.30.60/file.html?cmd=W01RS|C01%0D"
+wget -o /dev/null -O /dev/null "http://10.40.30.60/file.html?cmd=W01RS|C01%0D" // projector off
+# wget -o /dev/null -O /dev/null "http://10.40.30.60/file.html?cmd=W01%2C1%2C1%2C0IR%7C" // screen up // NO SCREEN MOTOR
+wget -o /dev/null -O /dev/null "http://10.40.30.60/file.html?cmd=W00000008LC%7C" // Extron LEDs changed
 
 # ***** ***** *****
 # ***** ***** *****
