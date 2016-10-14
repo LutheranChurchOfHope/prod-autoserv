@@ -4,41 +4,44 @@
 		<meta charset="utf-8"> 
 		<title>Auto-off page</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet/common_styles-file.css">
+		<script type="text/javascript" src="javascript/auto-off.js"></script>
 		<script>
-			documnt.getElementById("autoOffState").innerHTML = autoOff_state;
+			function onLoader() {
+				document.getElementById("autoOffState").innerHTML = autoOff_state;
+			}
 			function httpGet (theUrl) {
 				var xmlHttp = null;
 				xmlHttp = new XMLHttpRequest();
 				xmlHttp.open( "GET", theUrl, true );
 				xmlHttp.send();
 			}
-			function enableAutoOff {
+			function enableAutoOff() {
 				httpGet('http://prod-autoserv.hopewdm.org/cgi-bin/enable_auto-off.sh');
 			}
-			function disableAutoOff {
+			function disableAutoOff() {
 				httpGet('http://prod-autoserv.hopewdm.org/cgi-bin/disable_auto-off.sh');
 			}
 		</script>
 	</head>
 
-	<body class="bg-black" onload="goForth();">
+	<body class="bg-black" onload="onLoader();">
 		<div>
 			<a class="common tiny" onclick="goBack();">Back</a>
 			<img src="graphics/logo.png" width="225" height="150" alt="Production Logo">
 		</div>
 		<table class="table-buttons full-width table-align-center">
 			<tr class="table-buttons">
-				<td colspan="2">
+				<td colspan="3">
 					<span class="arial-big light-gray">Auto-off is currently:</span>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4">
+				<td colspan="3">
 					<br><br><br><br>
 				</td>
 			</tr>
 			<tr class="table-no-buttons">
-				<td colspan="4" class="table-no-buttons">
+				<td colspan="3" class="table-no-buttons">
 					<span class="simple-no-buttons" id="autoOffState">[ Error obtaining status ]</span>
 				</td>
 			</tr>
@@ -48,9 +51,13 @@
 					<a class="common simple yellow width-80" onclick="setTimeout(enableAutoOff, 1000);">Click to ENABLE normal auto-off schedule</a>
 				</td>
 				<td class="table-buttons">
+					<a class="common simple yellow width-80" href="http://prod-autoserv.hopewdm.org/log/projector-automation.log">Click to VIEW log file.</a>
+				</td>
+				<td class="table-buttons">
 					<a class="common simple yellow width-80" onclick="setTimeout(disableAutoOff, 1000);">Click to DISABLE auto-off functions entirely</a>
 				</td>
 			</tr>
 		</table>
 	</body>
 </html>
+
