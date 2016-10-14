@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+# location:
+# /opt/scripts/projector-automation/auto-off.sh
 
 
 # -----
