@@ -1,0 +1,384 @@
+#!/usr/bin/perl -W
+use strict;
+use warnings;
+use Switch;
+
+
+#system('sudo /opt/scripts/getter.sh');
+
+#&getHashesReady;
+#&getArraysReady;
+&doFileRead;
+#&printFileStuff;
+&lineByLine;
+
+# 0. have "getter" get stuff, before this script runs
+# 1. Get variables ready
+# 2. Read everything in
+# 3. Make sure there's no %02 or %03
+# 4. Put it all in array @data
+# 5. Go line-by-line and grab statuses
+# 6. As going line by line and grabbing, store in hash
+# 7. Print stuff (parsed!) back out as necessary.
+# 8. Web pages will read written-out stuff as JavaScript
+
+
+# places that unit-specific code is kept:
+# 1. initializing variables (hashes)
+# 2. switch/case under "line by line" subroutine
+# 3. "print" lines at the end
+# 	(twice per line, and two lines per projector!)
+# 4.
+
+
+#sub getArraysReady() {
+		our @data;
+#}
+
+#sub getHashesReady () {
+		# power
+		our %bridge_mainLeft_power;
+		our %bridge_mainRight_power;
+		our %bridge_mainCenter_power;
+		our %bridge_foldbackCenter_power;
+		our %chapel_mainSide_power;
+		our %chapel_mainCenter_power;
+		our %chapel_foldbackSide_power;
+		our %gym_mainSide_power;
+		our %well_mainCenter_power;
+		our %rm101A_mainCenter_power;
+		our %rm101C_mainCenter_power;
+		our %rm102_mainCenter_power;
+		our %rm104_mainCenter_power;
+		our %rm128_mainCenter_power;
+		our %rm212_mainCenter_power;
+		our %rm214_mainCenter_power;
+		our %rm216_mainCenter_power;
+		# hours, all lamps
+		our %bridge_mainLeft_lampHoursAll;
+		our %bridge_mainRightlampHoursAll;
+		our %bridge_mainCenterlampHoursAll;
+		our %bridge_foldbackCenterlampHoursAll;
+		our %chapel_mainSidelampHoursAll;
+		our %chapel_mainCenterlampHoursAll;
+		our %chapel_foldbackSidelampHoursAll;
+		our %gym_mainSidelampHoursAll;
+		our %well_mainCenterlampHoursAll;
+		our %rm101A_mainCenterlampHoursAll;
+		our %rm101C_mainCenterlampHoursAll;
+		our %rm102_mainCenterlampHoursAll;
+		our %rm104_mainCenterlampHoursAll;
+		our %rm128_mainCenterlampHoursAll;
+		our %rm212_mainCenterlampHoursAll;
+		our %rm214_mainCenterlampHoursAll;
+		our %rm216_mainCenterlampHoursAll;
+		# hours, lamp 1
+		our %bridge_mainLeft_lampHours1;
+		our %bridge_mainRightlampHours1;
+		our %bridge_mainCenterlampHours1;
+		our %bridge_foldbackCenterlampHours1;
+		our %chapel_mainSidelampHours1;
+		our %chapel_mainCenterlampHours1;
+		our %chapel_foldbackSidelampHours1;
+		our %gym_mainSidelampHours1;
+		our %well_mainCenterlampHours1;
+		our %rm101A_mainCenterlampHours1;
+		our %rm101C_mainCenterlampHours1;
+		our %rm102_mainCenterlampHours1;
+		our %rm104_mainCenterlampHours1;
+		our %rm128_mainCenterlampHours1;
+		our %rm212_mainCenterlampHours1;
+		our %rm214_mainCenterlampHours1;
+		our %rm216_mainCenterlampHours1;
+		# hours, lamp 2
+		our %bridge_mainLeft_lampHours2;
+		our %bridge_mainRightlampHours2;
+		our %bridge_mainCenterlampHours2;
+		our %bridge_foldbackCenterlampHours2;
+		our %chapel_mainSidelampHours2;
+		our %chapel_mainCenterlampHours2;
+		our %chapel_foldbackSidelampHours2;
+		our %gym_mainSidelampHours2;
+		our %well_mainCenterlampHours2;
+		our %rm101A_mainCenterlampHours2;
+		our %rm101C_mainCenterlampHours2;
+		our %rm102_mainCenterlampHours2;
+		our %rm104_mainCenterlampHours2;
+		our %rm128_mainCenterlampHours2;
+		our %rm212_mainCenterlampHours2;
+		our %rm214_mainCenterlampHours2;
+		our %rm216_mainCenterlampHours2;
+		# hours, lamp 3
+		our %bridge_mainLeft_lampHours3;
+		our %bridge_mainRightlampHours3;
+		our %bridge_mainCenterlampHours3;
+		our %bridge_foldbackCenterlampHours3;
+		our %chapel_mainSidelampHours3;
+		our %chapel_mainCenterlampHours3;
+		our %chapel_foldbackSidelampHours3;
+		our %gym_mainSidelampHours3;
+		our %well_mainCenterlampHours3;
+		our %rm101A_mainCenterlampHours3;
+		our %rm101C_mainCenterlampHours3;
+		our %rm102_mainCenterlampHours3;
+		our %rm104_mainCenterlampHours3;
+		our %rm128_mainCenterlampHours3;
+		our %rm212_mainCenterlampHours3;
+		our %rm214_mainCenterlampHours3;
+		our %rm216_mainCenterlampHours3;
+		# hours, lamp 4
+		our %bridge_mainLeft_lampHours4;
+		our %bridge_mainRightlampHours4;
+		our %bridge_mainCenterlampHours4;
+		our %bridge_foldbackCenterlampHours4;
+		our %chapel_mainSidelampHours4;
+		our %chapel_mainCenterlampHours4;
+		our %chapel_foldbackSidelampHours4;
+		our %gym_mainSidelampHours4;
+		our %well_mainCenterlampHours4;
+		our %rm101A_mainCenterlampHours4;
+		our %rm101C_mainCenterlampHours4;
+		our %rm102_mainCenterlampHours4;
+		our %rm104_mainCenterlampHours4;
+		our %rm128_mainCenterlampHours4;
+		our %rm212_mainCenterlampHours4;
+		our %rm214_mainCenterlampHours4;
+		our %rm216_mainCenterlampHours4;
+#}
+
+
+
+
+sub doFileRead() {
+		open (my $fh, "<", "/opt/data/projstatus/dumpstatus.txt")
+				or die "Failed to open file $!\n";
+
+		while (my $x = <$fh>) {
+				chomp $x;
+				# the following two lines are redundant,
+				# since they should be caught by the "getter"
+				# script and Extron box, respectively.
+				$x =~ s/%02//g;
+				$x =~ s/%03//g;
+				push @data, $x;
+		}
+}
+
+#sub printFileStuff() {
+#		foreach my $x (@status) {
+#				if ($x =~ 'panasonicPJLink') {
+#				print $x."\n";
+#				} else {
+#				print "not panasonic PJ Link \n";
+#				} 
+#		}
+#}
+
+sub lineByLine() {
+		foreach my $x (@data) {
+				switch ($x) {
+						# power
+						case m/bridge_mainLeft,power/ { %bridge_mainLeft_power = &parseLine($x); }
+						case m/bridge_mainRight,power/ { %bridge_mainRight_power = &parseLine($x); }
+						case m/bridge_mainCenter,power/ { %bridge_mainCenter_power = &parseLine($x); }
+						case m/bridge_foldbackCenter,power/ { %bridge_foldbackCenter_power = &parseLine($x); }
+						case m/chapel_mainSide,power/ { %chapel_mainSide_power = &parseLine($x); }
+						case m/chapel_mainCenter,power/ { %chapel_mainCenter_power = &parseLine($x); }
+						case m/chapel_foldbackCenter,power/ { %chapel_foldbackCenter_power = &parseLine($x); }
+						case m/gym_mainSide,power/ { %gym_mainSide_power = &parseLine($x); }
+						case m/well_mainCenter,power/ { %well_mainCenter_power = &parseLine($x); }
+						case m/rm101A_mainCenter,power/ { %rm101A_mainCenter_power = &parseLine($x); }
+						case m/rm101C_mainCenter,power/ { %rm101C_mainCenter_power = &parseLine($x); }
+						case m/rm102_mainCenter,power/ { %rm102_mainCenter_power = &parseLine($x); }
+						case m/rm104_mainCenter,power/ { %rm104_mainCenter_power = &parseLine($x); }
+						case m/rm128_mainCenter,power/ { %rm128_mainCenter_power = &parseLine($x); }
+						case m/rm212_mainCenter,power/ { %rm212_mainCenter_power = &parseLine($x); }
+						case m/rm214_mainCenter,power/ { %rm214_mainCenter_power = &parseLine($x); }
+						case m/rm216_mainCenter,power/ { %rm216_mainCenter_power = &parseLine($x); }
+						case m/rmRR1_mainCenter,power/ { %rmRR1_mainCenter_power = &parseLine($x); }
+						# hours, all lamps
+						case m/bridge_mainLeft,lampHoursAll/ { %bridge_mainLeft_lampHoursAll = &parseLine($x); }
+						case m/bridge_mainRight,lampHoursAll/ { %bridge_mainRight_lampHoursAll = &parseLine($x); }
+						case m/bridge_mainCenter,lampHoursAll/ { %bridge_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/bridge_foldbackCenter,lampHoursAll/ { %bridge_foldbackCenter_lampHoursAll = &parseLine($x); }
+						case m/chapel_mainSide,lampHoursAll/ { %chapel_mainSide_lampHoursAll = &parseLine($x); }
+						case m/chapel_mainCenter,lampHoursAll/ { %chapel_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/chapel_foldbackCenter,lampHoursAll/ { %chapel_foldbackCenter_lampHoursAll = &parseLine($x); }
+						case m/gym_mainSide,lampHoursAll/ { %gym_mainSide_lampHoursAll = &parseLine($x); }
+						case m/well_mainCenter,lampHoursAll/ { %well_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm101A_mainCenter,lampHoursAll/ { %rm101A_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm101C_mainCenter,lampHoursAll/ { %rm101C_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm102_mainCenter,lampHoursAll/ { %rm102_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm104_mainCenter,lampHoursAll/ { %rm104_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm128_mainCenter,lampHoursAll/ { %rm128_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm212_mainCenter,lampHoursAll/ { %rm212_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm214_mainCenter,lampHoursAll/ { %rm214_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rm216_mainCenter,lampHoursAll/ { %rm216_mainCenter_lampHoursAll = &parseLine($x); }
+						case m/rmRR1_mainCenter,lampHoursAll/ { %rmRR1_mainCenter_lampHoursAll = &parseLine($x); }
+						# hours, lamp 1
+						case m/bridge_mainLeft,lampHours1/ { %bridge_mainLeft_lampHours1 = &parseLine($x); }
+						case m/bridge_mainRight,lampHours1/ { %bridge_mainRight_lampHours1 = &parseLine($x); }
+						case m/bridge_mainCenter,lampHours1/ { %bridge_mainCenter_lampHours1 = &parseLine($x); }
+						case m/bridge_foldbackCenter,lampHours1/ { %bridge_foldbackCenter_lampHours1 = &parseLine($x); }
+						case m/chapel_mainSide,lampHours1/ { %chapel_mainSide_lampHours1 = &parseLine($x); }
+						case m/chapel_mainCenter,lampHours1/ { %chapel_mainCenter_lampHours1 = &parseLine($x); }
+						case m/chapel_foldbackCenter,lampHours1/ { %chapel_foldbackCenter_lampHours1 = &parseLine($x); }
+						case m/gym_mainSide,lampHours1/ { %gym_mainSide_lampHours1 = &parseLine($x); }
+						case m/well_mainCenter,lampHours1/ { %well_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm101A_mainCenter,lampHours1/ { %rm101A_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm101C_mainCenter,lampHours1/ { %rm101C_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm102_mainCenter,lampHours1/ { %rm102_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm104_mainCenter,lampHours1/ { %rm104_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm128_mainCenter,lampHours1/ { %rm128_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm212_mainCenter,lampHours1/ { %rm212_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm214_mainCenter,lampHours1/ { %rm214_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rm216_mainCenter,lampHours1/ { %rm216_mainCenter_lampHours1 = &parseLine($x); }
+						case m/rmRR1_mainCenter,lampHours1/ { %rmRR1_mainCenter_lampHours1 = &parseLine($x); }
+						# hours, lamp 2
+						case m/bridge_mainLeft,lampHours2/ { %bridge_mainLeft_lampHours2 = &parseLine($x); }
+						case m/bridge_mainRight,lampHours2/ { %bridge_mainRight_lampHours2 = &parseLine($x); }
+						case m/bridge_mainCenter,lampHours2/ { %bridge_mainCenter_lampHours2 = &parseLine($x); }
+						case m/bridge_foldbackCenter,lampHours2/ { %bridge_foldbackCenter_lampHours2 = &parseLine($x); }
+						case m/chapel_mainSide,lampHours2/ { %chapel_mainSide_lampHours2 = &parseLine($x); }
+						case m/chapel_mainCenter,lampHours2/ { %chapel_mainCenter_lampHours2 = &parseLine($x); }
+						case m/chapel_foldbackCenter,lampHours2/ { %chapel_foldbackCenter_lampHours2 = &parseLine($x); }
+						case m/gym_mainSide,lampHours2/ { %gym_mainSide_lampHours2 = &parseLine($x); }
+						case m/well_mainCenter,lampHours2/ { %well_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm101A_mainCenter,lampHours2/ { %rm101A_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm101C_mainCenter,lampHours2/ { %rm101C_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm102_mainCenter,lampHours2/ { %rm102_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm104_mainCenter,lampHours2/ { %rm104_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm128_mainCenter,lampHours2/ { %rm128_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm212_mainCenter,lampHours2/ { %rm212_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm214_mainCenter,lampHours2/ { %rm214_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rm216_mainCenter,lampHours2/ { %rm216_mainCenter_lampHours2 = &parseLine($x); }
+						case m/rmRR1_mainCenter,lampHours2/ { %rmRR1_mainCenter_lampHours2 = &parseLine($x); }
+						# hours, lamp 3
+						case m/bridge_mainLeft,lampHours3/ { %bridge_mainLeft_lampHours3 = &parseLine($x); }
+						case m/bridge_mainRight,lampHours3/ { %bridge_mainRight_lampHours3 = &parseLine($x); }
+						case m/bridge_mainCenter,lampHours3/ { %bridge_mainCenter_lampHours3 = &parseLine($x); }
+						case m/bridge_foldbackCenter,lampHours3/ { %bridge_foldbackCenter_lampHours3 = &parseLine($x); }
+						case m/chapel_mainSide,lampHours3/ { %chapel_mainSide_lampHours3 = &parseLine($x); }
+						case m/chapel_mainCenter,lampHours3/ { %chapel_mainCenter_lampHours3 = &parseLine($x); }
+						case m/chapel_foldbackCenter,lampHours3/ { %chapel_foldbackCenter_lampHours3 = &parseLine($x); }
+						case m/gym_mainSide,lampHours3/ { %gym_mainSide_lampHours3 = &parseLine($x); }
+						case m/well_mainCenter,lampHours3/ { %well_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm101A_mainCenter,lampHours3/ { %rm101A_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm101C_mainCenter,lampHours3/ { %rm101C_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm102_mainCenter,lampHours3/ { %rm102_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm104_mainCenter,lampHours3/ { %rm104_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm128_mainCenter,lampHours3/ { %rm128_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm212_mainCenter,lampHours3/ { %rm212_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm214_mainCenter,lampHours3/ { %rm214_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rm216_mainCenter,lampHours3/ { %rm216_mainCenter_lampHours3 = &parseLine($x); }
+						case m/rmRR1_mainCenter,lampHours3/ { %rmRR1_mainCenter_lampHours3 = &parseLine($x); }
+						# hours, lamp 4
+						case m/bridge_mainLeft,lampHours4/ { %bridge_mainLeft_lampHours4 = &parseLine($x); }
+						case m/bridge_mainRight,lampHours4/ { %bridge_mainRight_lampHours4 = &parseLine($x); }
+						case m/bridge_mainCenter,lampHours4/ { %bridge_mainCenter_lampHours4 = &parseLine($x); }
+						case m/bridge_foldbackCenter,lampHours4/ { %bridge_foldbackCenter_lampHours4 = &parseLine($x); }
+						case m/chapel_mainSide,lampHours4/ { %chapel_mainSide_lampHours4 = &parseLine($x); }
+						case m/chapel_mainCenter,lampHours4/ { %chapel_mainCenter_lampHours4 = &parseLine($x); }
+						case m/chapel_foldbackCenter,lampHours4/ { %chapel_foldbackCenter_lampHours4 = &parseLine($x); }
+						case m/gym_mainSide,lampHours4/ { %gym_mainSide_lampHours4 = &parseLine($x); }
+						case m/well_mainCenter,lampHours4/ { %well_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm101A_mainCenter,lampHours4/ { %rm101A_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm101C_mainCenter,lampHours4/ { %rm101C_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm102_mainCenter,lampHours4/ { %rm102_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm104_mainCenter,lampHours4/ { %rm104_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm128_mainCenter,lampHours4/ { %rm128_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm212_mainCenter,lampHours4/ { %rm212_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm214_mainCenter,lampHours4/ { %rm214_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rm216_mainCenter,lampHours4/ { %rm216_mainCenter_lampHours4 = &parseLine($x); }
+						case m/rmRR1_mainCenter,lampHours4/ { %rmRR1_mainCenter_lampHours4 = &parseLine($x); }
+				}
+		}
+}
+
+sub parseLine($) {
+		our %hashName;
+		our ($status,$hoursAll,$hours1,$hours2,$hours3,$hours4);
+		my $data = shift;
+		our ($proj,$type,$item,$value) = split /,/, $data;
+		switch ($item) {
+			case m/power/ {
+				switch ($type) {
+					case m/panasonicPJLink/ {
+						switch ($value) {
+							case m/000/ { $value = 'off'; }
+							case m/001/ { $value = 'on'; }
+						}
+					}
+					case m/sanyoPLC/ {
+						switch ($value) {
+							case m/00/ { $value = 'on'; }
+							case m/80/ { $value = 'off'; }
+							case m/40/ { $value = 'Countdown'; }
+							case m/20/ { $value = 'Cooling Down'; }
+							case m/10/ { $value = 'Power Malfunction'; }
+							case m/28/ { $value = 'Cooling down at the temperature anomaly'; }
+							case m/02/ { $value = 'Unable to receive the RC232C command.'; }
+							case m/24/ { $value = 'Cooling down at Power Management mode'; }
+							case m/04/ { $value = 'Power Management mode after Cooling down'; }
+							case m/21/ { $value = 'Cooling down after the projector is turned off when the lamps are out.'; }
+							case m/81/ { $value = 'Stand-by mode after Cooling down when the lamps are out.'; }
+							case m/88/ { $value = 'Stand-by mode after Cooling down at the temperature anomaly.'; }
+						}
+					}
+				}
+			}
+			case m/lampHoursAll/ {
+				our ($hours1,$hours2,$hours3,$hours4) = split / /, $value;
+			}
+			case m/lampHours1/ {
+				$hours1 = $value;
+			}
+			case m/lampHours2/ {
+				$hours2 = $value;
+			}
+			case m/lampHours3/ {
+				$hours3 = $value;
+			}
+			case m/lampHours4/ {
+				$hours4 = $value;
+			}
+		}
+		
+		switch ($item) {
+			case m/power/ {
+				%hashName = (
+					proj => $proj,
+					type => $type,
+					status => $value,
+				);
+			}
+			case m/lampHours/ {
+				%hashName = (
+					proj => $proj,
+					type => $type,
+					hours1 => $hours1,
+					hours2 => $hours2,
+					hours3 => $hours3,
+					hours4 => $hours4,
+				);
+			}
+		return %hashName;
+		#print %hashName;
+}
+
+
+print 'var bridge_mainLeft_status = '.$bridge_mainLeft{"status"}."\n";
+print 'var bridge_mainRight_status = '.$bridge_mainRight{"status"}."\n";
+print 'var bridge_mainCenter_status = '.$bridge_mainCenter{"status"}."\n";
+print 'var bridge_foldbackCenter_status = '.$bridge_foldbackCenter{"status"}."\n";
+print 'var chapel_mainSide_status = '.$chapel_mainSide{"status"}."\n";
+print 'var chapel_mainCenter_status = '.$chapel_mainCenter{"status"}."\n";
+print 'var chapel_foldbackSide_status = '.$chapel_foldbackSide{"status"}."\n";
+
+print 'var bridge_mainLeft_hours = '.$bridge_mainLeft{"hours"}."\n";
+print 'var bridge_mainRight_hours = '.$bridge_mainRight{"hours"}."\n";
+print 'var bridge_mainCenter_hours = '.$bridge_mainCenter{"hours"}."\n";
+print 'var bridge_foldbackCenter_hours = '.$bridge_foldbackCenter{"hours"}."\n";
+print 'var chapel_mainSide_hours = '.$chapel_mainSide{"hours"}."\n";
+print 'var chapel_mainCenter_hours = '.$chapel_mainCenter{"hours"}."\n";
+print 'var chapel_foldbackSide_hours = '.$chapel_foldbackSide{"hours"}."\n";

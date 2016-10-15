@@ -1,0 +1,30 @@
+
+
+
+- Bash starts while loop
+	- while loop calls Perl
+		- Perl calls Bash
+			- Bash grabs/dumps statuses
+		- Perl parses statusts
+		- Perl outputs statuses
+	- Statuses are dumped in WWW area
+
+
+- web browser requests JavaScript functions file
+	- one of the functions loads the status...
+	- ...and it continuously re-checks the statuses
+	- updates display on page as necessary
+
+	
+All places code might have to change,
+ whenever we change out a projector for a different brand,
+  or one with a different number of lamps,
+   or something like that:
+- Perl file
+- "status" HTML file on Extron box
+- "control" HTML file on Extron box
+- JavaScript variables file
+- midnight off script
+
+
+
